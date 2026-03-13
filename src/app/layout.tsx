@@ -3,13 +3,13 @@ import './globals.css'
 import Chatbot from '@/components/Chatbot'
 
 export const metadata: Metadata = {
-  title: 'Louis Miguel Bernal — Full Stack Developer',
+  title: 'Louis Miguel Bernal — AI Full Stack Developer',
   description: 'Full stack developer specializing in building exceptional digital experiences. Crafting performant, scalable web applications with modern technologies.',
-  keywords: ['full stack developer', 'react', 'next.js', 'typescript', 'portfolio'],
+  keywords: ['ai full stack developer', 'react', 'next.js', 'typescript', 'portfolio'],
   authors: [{ name: 'Louis Miguel Bernal' }],
   openGraph: {
-    title: 'Louis Miguel Bernal — Full Stack Developer',
-    description: 'Full stack developer crafting exceptional digital experiences.',
+    title: 'Louis Miguel Bernal — AI Full Stack Developer',
+    description: 'AI full stack developer crafting exceptional digital experiences.',
     type: 'website',
   },
 }
