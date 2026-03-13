@@ -98,12 +98,14 @@ const pastGroups = [
       { title: 'FDIC Failed Banks', desc: 'Power BI analysis of U.S. bank failures from 2000–2024 with interactive maps.', tags: ['Power BI', 'FDIC Data', 'DAX'], github: 'https://github.com/LouisMiguelBernal/FDIC-Failed-Banks-Analysis' },
       { title: 'AirBNB Analysis', desc: 'Full data pipeline: cleaning, visualization, mining, and prediction on AirBNB NYC dataset.', tags: ['Pandas', 'Seaborn', 'PostgreSQL'], github: 'https://github.com/LouisMiguelBernal/AirBNB' },
       { title: 'Starbucks Location Analysis', desc: 'Geospatial analysis of global Starbucks store locations and density patterns.', tags: ['Folium', 'Pandas', 'Geospatial'], github: 'https://github.com/LouisMiguelBernal/Starbucks-Location-Analysis' },
-      { title: 'COVID-19 Barangay', desc: 'COVID-19 analysis at barangay level using geospatial and statistical methods.', tags: ['GeoPandas', 'Pandas', 'Jupyter'], github: 'https://github.com/LouisMiguelBernal/COVID-19-Barangay-Analysis' },
       { title: 'Accenture Data Project', desc: 'Excel-driven analysis uncovering Accenture business insights and growth opportunities.', tags: ['Excel', 'Business Analysis', 'Visualization'], github: 'https://github.com/LouisMiguelBernal/Accenture-Data-Project' },
       { title: 'Coffee Sales Power BI', desc: 'Interactive Power BI dashboard tracking coffee sales KPIs and revenue trends.', tags: ['Power BI', 'DAX', 'Dashboard'], github: 'https://github.com/LouisMiguelBernal/Coffee-Sales-Power-Bi' },
+      { title: 'Global EV Analysis', desc: 'PostgreSQL + Python analysis of global electric vehicle adoption trends.', tags: ['PostgreSQL', 'EV Data', 'Pandas'], github: 'https://github.com/LouisMiguelBernal/Global-Electric-Vehicle-PostgreSQL-Python-Analysis' },
       { title: 'Data Breach Analysis', desc: 'Exploratory analysis of global data breach incidents and breach patterns.', tags: ['Pandas', 'Matplotlib', 'EDA'], github: 'https://github.com/LouisMiguelBernal/Data-Breach-Analysis' },
       { title: 'Covid-19 Excel Analysis', desc: 'Comprehensive COVID-19 pandemic data processing and visualization in Excel.', tags: ['Excel', 'Data Viz', 'Statistics'], github: 'https://github.com/LouisMiguelBernal/Covid-19-Analysis' },
       { title: 'Data Analysis Projects', desc: 'Collection of diverse data analysis projects covering multiple domains.', tags: ['Pandas', 'Jupyter', 'Matplotlib'], github: 'https://github.com/LouisMiguelBernal/Data-Analysis-Projects' },
+      { title: 'COVID-19 Barangay', desc: 'COVID-19 analysis at barangay level using geospatial and statistical methods.', tags: ['GeoPandas', 'Pandas', 'Jupyter'], github: 'https://github.com/LouisMiguelBernal/COVID-19-Barangay-Analysis' }
+
     ],
   },
   {
@@ -130,7 +132,6 @@ const pastGroups = [
       { title: 'US House Price Prediction', desc: 'Sophisticated ML pipeline for predicting house prices across the United States.', tags: ['Sklearn', 'EDA', 'Regression'], github: 'https://github.com/LouisMiguelBernal/US-House-Price-Prediction' },
       { title: 'Real Estate PostgreSQL', desc: 'PostgreSQL + Python integration pipeline for real estate data analysis.', tags: ['PostgreSQL', 'Python', 'ETL'], github: 'https://github.com/LouisMiguelBernal/PostgreSQL-and-Python-Integration-for-Real-Estate-Analysis' },
       { title: 'California Housing', desc: 'Advanced data cleaning, visualization, and ML for California house price prediction.', tags: ['Sklearn', 'Seaborn', 'Regression'], github: 'https://github.com/LouisMiguelBernal/California-Housing-Prediction' },
-      { title: 'Global EV Analysis', desc: 'PostgreSQL + Python analysis of global electric vehicle adoption trends.', tags: ['PostgreSQL', 'EV Data', 'Pandas'], github: 'https://github.com/LouisMiguelBernal/Global-Electric-Vehicle-PostgreSQL-Python-Analysis' },
       { title: 'Melbourne House Prediction', desc: 'House price prediction model for the Melbourne real estate market.', tags: ['Sklearn', 'EDA', 'Python'], github: 'https://github.com/LouisMiguelBernal/Melbourne-House-Prediction' },
     ],
   },
