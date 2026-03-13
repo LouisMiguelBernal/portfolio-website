@@ -9,19 +9,20 @@ export const KNOWLEDGE_BASE = {
   // ── Personal Info ──────────────────────────────────────────────────────────
   personal: {
     name: 'Louis Miguel Bernal',
-    title: 'Full Stack Developer & Data Analyst',
+    title: 'Full Stack Developer & Data Engineer',
     location: 'Cavite, Philippines',
     email: 'miguellouis.work@gmail.com',
+    phone: '+63 09997703445',
     linkedin: 'https://www.linkedin.com/in/louisbernal/',
     github: 'https://github.com/LouisMiguelBernal',
     summary: `
-      Full Stack Developer and Data Analyst with hands-on experience building
-      AI-powered applications, full-stack web platforms, and data-driven solutions.
-      Specializes in machine learning, computer vision, NLP, and deep learning —
-      with a proven track record of shipping production-grade AI systems from
-      research to deployment. Dean's Lister at DLSU-D with a 3.83 GPA, 12+
-      certifications, and 5+ deployed projects. Passionate about clean UI/UX,
-      intelligent systems, and delivering real business value through code.
+      Full Stack Developer and Data Engineer with hands-on experience building
+      AI-powered applications, full-stack web platforms, production-grade data pipelines,
+      and data-driven solutions. Specializes in machine learning, computer vision, NLP,
+      deep learning, and backend data engineering — with a proven track record of shipping
+      production-grade systems from research to deployment. Dean's Lister at DLSU-D with
+      a 3.83 GPA, 12+ certifications, and 5+ deployed projects. Passionate about clean
+      UI/UX, intelligent systems, and delivering real business value through code.
       Currently open to full-time roles, freelance projects, and collaborations.
     `,
   },
@@ -48,7 +49,8 @@ export const KNOWLEDGE_BASE = {
       'Custom-trained YOLOv11 model optimized for real-time LTO road marking detection.',
       'Integrated auditory feedback system for accessibility and driver assistance.',
       'Successfully defended undergraduate thesis at DLSU-D.',
-      'Presented at ICAI 2026 international research conference attended by global academics and professionals.',
+      'Demonstrated and taught VisorAI to international and local academics and industry professionals at ICAI 2026.',
+      'Delivered AI-driven transportation insights to the international research community.',
       'Engaged in technical discussions with researchers and industry professionals about intelligent transportation and AI scalability.',
       'Promotes road safety, compliance with LTO regulations, and reduction of traffic-related accidents.',
       'Built with Python, YOLOv11, OpenCV, Streamlit, Roboflow, and an audio feedback system.',
@@ -61,17 +63,28 @@ export const KNOWLEDGE_BASE = {
   // ── Work Experience ────────────────────────────────────────────────────────
   experience: [
     {
-      role: 'Data Solutions Intern (Data Analyst)',
-      company: 'PASIA – Procurement and Supply Institute of Asia',
-      period: 'Jun 2025 – Present',
-      location: 'Makati, NCR, Philippines · Hybrid',
+      role: 'Data & Backend Engineer',
+      company: 'FloatInfinity',
+      period: 'Mar 2026 – Present',
+      location: 'Sydney, Australia · Remote',
+      tech: ['Azure', 'SQL', 'Python', 'REST APIs', 'Git', 'SQLite'],
       bullets: [
-        'Drove data-driven solutions leveraging Python and advanced analytics to enhance reporting, automation, and executive decision-making.',
-        'Engineered data pipelines using Pandas, NumPy, Matplotlib, and Seaborn for data cleaning, transformation, and visualization.',
-        'Delivered analytical reports and dashboards that directly supported procurement training initiatives and strategic planning.',
+        'Engineered end-to-end data pipelines integrating third-party REST APIs (ConnectWise) with Python-based ETL layers, handling authentication, pagination, schema validation, and SQLite persistence across 25-column normalized schemas.',
+        'Designed modular backend systems with clean separation of concerns across API, transformation, schema enforcement, and storage layers, enabling smart-update deduplication and SLA-aware query interfaces.',
+        'Delivered production-grade data retrieval and reporting infrastructure on Azure-compatible stacks, surfacing real-time ticket analytics — status breakdowns, priority distributions, and SLA compliance rates — from live service management platforms.',
+      ],
+    },
+    {
+      role: 'Data Analyst Intern',
+      company: 'PASIA – Procurement and Supply Institute of Asia',
+      period: 'Jun 2025 – Aug 2025',
+      location: 'Makati, NCR, Philippines · Hybrid',
+      tech: ['Python', 'SQL', 'Scikit-learn', 'Pandas', 'Power BI', 'Excel', 'Git'],
+      bullets: [
+        'Automated large-scale data preprocessing pipelines using Python (Pandas, Scikit-learn) and machine learning–based imputation, processing over 1 million procurement and contract records, reducing manual effort by 85%.',
+        'Optimized SQL ETL pipelines for automated ingestion and transformation of high-volume procurement data, ensuring 99% consistency across departments and daily data refreshes for real-time insights.',
+        'Developed advanced Power BI and Excel visualizations of private contractor procurement data, transforming 1M+ contract records into actionable business intelligence insights empowering stakeholders to identify high-value savings and efficiency gains.',
         'Managed database integrity through data validation, coding audits, and consistency checks across large datasets.',
-        'Built automated workflows to eliminate manual reporting bottlenecks and streamline cross-departmental data processes.',
-        'Gained corporate experience in process optimization, enterprise analytics, and data solutions within a professional hybrid environment.',
       ],
     },
     {
@@ -113,7 +126,7 @@ export const KNOWLEDGE_BASE = {
     {
       degree: 'Bachelor of Science in Computer Science — Specialization: Intelligent Systems',
       school: 'De La Salle University – Dasmariñas (DLSU-D)',
-      period: 'Sep 2022 – 2026',
+      period: 'Aug 2022 – May 2026',
       grade: '3.83 / 4.0 GPA',
       notes: "Consistent Dean's Lister. Thesis: VisorAI — a YOLOv11-powered mobile application for real-time LTO road marking detection, successfully defended and presented at ICAI 2026. Leadership: Director for Programming & Creatives (CSITPC) and Executive Committee Director for Finance & PR (DLSUD CSO).",
     },
@@ -142,24 +155,31 @@ export const KNOWLEDGE_BASE = {
 
   // ── Skills ─────────────────────────────────────────────────────────────────
   skills: {
-    languages:    ['Python', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'SQL'],
+    languages:    ['Python', 'TypeScript', 'JavaScript', 'SQL', 'Java', 'C', 'Dart', 'HTML', 'CSS', 'Linux/Bash'],
     frameworks:   ['React', 'Next.js', 'Node.js', 'Express', 'TailwindCSS', 'Streamlit'],
-    aiml:         ['TensorFlow', 'PyTorch', 'Scikit-learn', 'YOLOv11', 'LangChain', 'FAISS', 'Groq', 'RAG systems', 'OpenCV', 'Roboflow'],
-    dataScience:  ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'XGBoost', 'SHAP', 'Optuna', 'Monte Carlo Simulation', 'Plotly'],
+    aiml:         ['TensorFlow', 'PyTorch', 'Keras', 'Scikit-learn', 'YOLOv11', 'LangChain', 'FAISS', 'Groq', 'RAG systems', 'OpenCV', 'Roboflow', 'HuggingFace', 'LLMs'],
+    dataScience:  ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'XGBoost', 'SHAP', 'Optuna', 'Monte Carlo Simulation', 'Plotly', 'Power BI', 'Tableau'],
+    dataEngineering: ['ETL Pipelines', 'REST API Integration', 'SQLite', 'PostgreSQL', 'Schema Validation', 'Data Deduplication', 'SLA-aware Query Interfaces', 'Azure'],
     databases:    ['PostgreSQL', 'MongoDB', 'Supabase', 'Firebase', 'SQLite'],
-    tools:        ['Git', 'Docker', 'Vercel', 'Figma', 'Postman', 'Tableau', 'Microsoft Excel'],
-    concepts:     ['REST APIs', 'Computer Vision', 'NLP', 'Deep Learning', 'Data Visualization', 'CI/CD', 'Agile/Scrum', 'UI/UX Design', 'Time-Series Forecasting', 'Object Detection'],
+    tools:        ['Git', 'GitHub', 'Docker', 'Vercel', 'Azure', 'Figma', 'Postman', 'Tableau', 'Power BI', 'Microsoft Excel'],
+    concepts:     ['REST APIs', 'Computer Vision', 'NLP', 'Deep Learning', 'Data Visualization', 'CI/CD', 'Agile/Scrum', 'UI/UX Design', 'Time-Series Forecasting', 'Object Detection', 'Data Engineering', 'Backend Systems'],
   },
 
   // ── Certifications ─────────────────────────────────────────────────────────
   certifications: [
+    {
+      name: 'International Conference on Artificial Intelligence (ICAI 2026)',
+      issuer: 'ICAI 2026',
+      date: 'Feb 2026',
+      description: 'Demonstrated and taught VisorAI, a YOLOv11-powered mobile app for real-time LTO road marking detection with auditory feedback, delivering AI-driven transportation insights to international and local academics and industry professionals.',
+    },
     {
       name: 'Deep Learning Specialization',
       issuer: 'DeepLearning.AI (Andrew Ng)',
       date: 'Dec 2025',
       credentialId: '5DCEBTE0WLYU',
       verifyLink: 'https://coursera.org/verify/5DCEBTE0WLYU',
-      description: 'Comprehensive mastery of deep learning fundamentals and advanced architectures using Python and TensorFlow. Covered CNNs, RNNs, LSTMs, and Transformers with real-world applications in computer vision and NLP. Proficient in hyperparameter tuning, regularization, and bias-variance analysis.',
+      description: 'Mastered the design, training, and optimization of production-ready deep learning systems across 5 courses, including CNNs, RNNs/LSTMs, and Transformers. Comprehensive mastery of deep learning fundamentals using Python and TensorFlow. Covered systematic error analysis, data distribution strategies, advanced regularization, hyperparameter tuning, and bias-variance analysis.',
     },
     {
       name: 'Sequence Models',
@@ -203,7 +223,7 @@ export const KNOWLEDGE_BASE = {
       name: "Data Science Workshop 2024: Professor Widom's Instructional Odyssey",
       issuer: 'De La Salle University (instructed by Prof. Jennifer Widom, Dean of Stanford School of Engineering)',
       date: 'Sep 2024',
-      description: "Intensive workshop covering data analysis, visualization, machine learning, data mining, SQL, Tableau, and SQLite — led by one of Stanford's foremost data science educators.",
+      description: "Intensive, hands-on workshop led by Professor Jennifer Widom, Dean of Stanford Engineering. Specializing in data analysis, visualization, machine learning, and data mining using professional tools such as Tableau and SQLite.",
     },
     {
       name: 'Accenture North America – Data Analytics and Visualization Job Simulation',
@@ -252,7 +272,7 @@ export const KNOWLEDGE_BASE = {
       githubLink: 'https://github.com/LouisMiguelBernal/VisorAI',
       highlights: [
         'Undergraduate thesis — successfully defended at DLSU-D.',
-        'Presented at ICAI 2026 international research conference.',
+        'Presented and demonstrated at ICAI 2026 international research conference.',
         'Custom-trained YOLOv11 model on a proprietary LTO road marking dataset.',
         'Real-time object detection optimized for mobile and field deployment.',
         'Auditory feedback system for driver accessibility and road safety.',
@@ -263,13 +283,17 @@ export const KNOWLEDGE_BASE = {
       name: 'DeepS&P',
       category: 'AI / Finance / Deep Learning',
       year: '2026',
-      description: 'Institutional-grade S&P 500 AI forecasting platform powered by a 3-layer LSTM neural network trained on 90+ years of historical market data. Combines time-series deep learning with Monte Carlo simulation (up to 2,000 stochastic paths) and interactive financial dashboards.',
-      tech: ['PyTorch', 'LSTM', 'Monte Carlo Simulation', 'Streamlit', 'Plotly', 'Scikit-learn', 'YFinance'],
+      period: 'Dec 2025 – Feb 2026',
+      description: 'Institutional-grade S&P 500 AI forecasting platform powered by a 3-layer LSTM neural network (256 hidden units, dropout-regularized) trained on 90+ years of historical market data with advanced feature engineering on price and volume. Combines time-series deep learning with Monte Carlo simulation (2,000 stochastic paths) for volatility modeling and scenario analysis, plus interactive financial dashboards.',
+      tech: ['TensorFlow', 'PyTorch', 'LSTM', 'Monte Carlo Simulation', 'Streamlit', 'Plotly', 'Scikit-learn', 'YFinance', 'Python'],
       liveLink: 'https://deepsp500.streamlit.app/',
       githubLink: 'https://github.com/LouisMiguelBernal/DeepSP',
       highlights: [
-        '3-layer LSTM model trained on S&P 500 data from 1930–2020.',
-        'Monte Carlo simulation generating up to 2,000 stochastic future price paths.',
+        'Architected institutional-grade AI forecasting platform for the S&P 500.',
+        '3-layer LSTM model (256 hidden units, dropout-regularized) trained on 90+ years of S&P 500 data.',
+        'Advanced feature engineering on both price and volume data.',
+        'Monte Carlo simulation generating 2,000 stochastic future price paths for volatility modeling.',
+        'Interactive LSTM prediction validation module.',
         'SMA50 & SMA200 technical overlays for professional trend analysis.',
         'GPU-optimized inference via PyTorch.',
         'Interactive financial dashboard with Streamlit and Plotly.',
@@ -279,14 +303,18 @@ export const KNOWLEDGE_BASE = {
       name: 'GiftxAI',
       category: 'AI / RAG System / NLP',
       year: '2025',
-      description: 'Enterprise-grade RAG-powered gift recommendation engine using Groq Llama 3.3, FAISS vector embeddings, LangChain orchestration, and a proprietary triple-validation mechanism for zero-hallucination accuracy.',
-      tech: ['LangChain', 'FAISS', 'Groq', 'Llama 3.3', 'RAG', 'Python', 'Streamlit'],
+      period: 'Nov 2025 – Dec 2025',
+      description: 'Enterprise-grade RAG-powered gift recommendation engine using Groq Llama 3.3, FAISS vector embeddings, LangChain orchestration, and a proprietary triple-validation mechanism for zero-hallucination accuracy. Orchestrated high-speed PDF ingestion, intelligent text extraction, and FAISS vector embedding with HuggingFace models, enabling ultra-fast scalable retrieval across thousands of document chunks.',
+      tech: ['LangChain', 'FAISS', 'Groq', 'Llama 3.3', 'HuggingFace', 'RAG', 'Python', 'Streamlit'],
       liveLink: 'https://giftxai.streamlit.app/',
       githubLink: 'https://github.com/LouisMiguelBernal/GiftxAI',
       highlights: [
         'Full RAG pipeline using FAISS vector embeddings for semantic retrieval.',
         'Triple-validation mechanism engineered to eliminate hallucinations.',
         'Powered by Groq Llama 3.3 for ultra-fast inference.',
+        'High-speed PDF ingestion and intelligent text extraction.',
+        'HuggingFace embeddings enabling scalable retrieval across thousands of document chunks.',
+        'Advanced numerical ranking for precision recommendations.',
         'Real-time performance metrics dashboard.',
       ],
     },
@@ -309,7 +337,8 @@ export const KNOWLEDGE_BASE = {
       name: 'QuantMaven',
       category: 'Data / Quantitative Finance / Dashboard',
       year: '2024',
-      description: 'Research-backed interactive Streamlit trading intelligence platform with real-time stock data, RSI and Bollinger Bands indicators, 10 years of historical analysis, and dynamic programming for max-profit optimization.',
+      period: 'Nov 2024 – Jan 2025',
+      description: 'Research-backed interactive Streamlit trading intelligence platform with real-time stock data, RSI and Bollinger Bands indicators, 10 years of historical analysis, and dynamic programming for max-profit optimization. Engineered to visualize market volatility 50% faster than traditional tools.',
       tech: ['Streamlit', 'YFinance', 'Plotly', 'Python', 'Pandas'],
       liveLink: 'https://quantmaven.streamlit.app/',
       githubLink: 'https://github.com/LouisMiguelBernal/QuantMaven',
@@ -317,7 +346,8 @@ export const KNOWLEDGE_BASE = {
         'Real-time stock data via YFinance API.',
         'Technical indicators: RSI and Bollinger Bands.',
         '10 years of historical performance analysis.',
-        'Dynamic programming algorithm for max-profit optimization.',
+        'Dynamic programming and divide-and-conquer algorithms (max profit optimization and merge sort ranking) for high-efficiency analytics.',
+        'Visualizes market volatility 50% faster than traditional tools.',
         'Defended as academic research at DLSU-D.',
       ],
     },
@@ -326,14 +356,15 @@ export const KNOWLEDGE_BASE = {
   // ── Other Notable Work ─────────────────────────────────────────────────────
   otherWork: [
     {
+      name: 'Airbnb NYC Advanced Data Analytics with PostgreSQL',
+      period: 'Aug 2025 – Sep 2025',
+      description: 'Engineered end-to-end data analysis pipeline on 48,895 Airbnb NYC listings — data cleaning, EDA, visualization (Seaborn, Matplotlib, WordCloud), and feature engineering to extract actionable insights on pricing, reviews, and availability. Integrated and managed PostgreSQL database for efficient storage and retrieval, enabling reproducible analytics and seamless ML model training workflows.',
+      tech: ['SQL', 'PostgreSQL', 'Python', 'Scikit-learn', 'Seaborn', 'Matplotlib', 'Pandas', 'Git'],
+    },
+    {
       name: 'Adult Income Prediction (XGBoost + Optuna)',
       description: 'End-to-end ML pipeline on 48,842 records from the UCI Adult Income dataset. 87.27% accuracy with XGBoost optimized via 200+ Optuna trials. Full pipeline: data cleaning, feature engineering, EDA, modeling, and automated hyperparameter tuning.',
       tech: ['XGBoost', 'Optuna', 'Python', 'Seaborn', 'Scikit-learn'],
-    },
-    {
-      name: 'NYC Airbnb Market Analysis',
-      description: 'Comprehensive EDA on 48,895 Airbnb listings across New York City. Uncovered pricing patterns, host dynamics, borough-level segmentation, and market opportunities using association rule mining and statistical analysis.',
-      tech: ['Python', 'Pandas', 'Seaborn', 'Plotly'],
     },
     {
       name: 'SVM Face Classification Model',
@@ -372,7 +403,7 @@ export const KNOWLEDGE_BASE = {
   availability: {
     status: 'Open to opportunities',
     types: ['Full-time roles', 'Freelance projects', 'Collaborations', 'Internships'],
-    preferredRoles: ['Full Stack Developer', 'Data Analyst', 'ML Engineer', 'AI Developer', 'Frontend Developer', 'Backend Developer'],
+    preferredRoles: ['Full Stack Developer', 'Data Engineer', 'Data Analyst', 'ML Engineer', 'AI Developer', 'Backend Engineer', 'Frontend Developer'],
     noticePeriod: 'Available immediately',
   },
 
@@ -388,6 +419,7 @@ export function buildContext(): string {
 
   const experience = kb.experience.map(e =>
     `• ${e.role} at ${e.company} (${e.period}) — ${e.location}\n` +
+    ('tech' in e && e.tech ? `  Tech: ${e.tech.join(', ')}\n` : '') +
     e.bullets.map(b => `  - ${b}`).join('\n')
   ).join('\n\n')
 
@@ -398,24 +430,26 @@ export function buildContext(): string {
   ).join('\n\n')
 
   const skills = [
-    `Languages:    ${kb.skills.languages.join(', ')}`,
-    `Frameworks:   ${kb.skills.frameworks.join(', ')}`,
-    `AI/ML:        ${kb.skills.aiml.join(', ')}`,
-    `Data Science: ${kb.skills.dataScience.join(', ')}`,
-    `Databases:    ${kb.skills.databases.join(', ')}`,
-    `Tools:        ${kb.skills.tools.join(', ')}`,
-    `Concepts:     ${kb.skills.concepts.join(', ')}`,
+    `Languages:        ${kb.skills.languages.join(', ')}`,
+    `Frameworks:       ${kb.skills.frameworks.join(', ')}`,
+    `AI/ML:            ${kb.skills.aiml.join(', ')}`,
+    `Data Science:     ${kb.skills.dataScience.join(', ')}`,
+    `Data Engineering: ${kb.skills.dataEngineering.join(', ')}`,
+    `Databases:        ${kb.skills.databases.join(', ')}`,
+    `Tools:            ${kb.skills.tools.join(', ')}`,
+    `Concepts:         ${kb.skills.concepts.join(', ')}`,
   ].join('\n')
 
   const certs = kb.certifications.map(c =>
     `• ${c.name} — ${c.issuer} (${c.date})` +
-    (c.credentialId ? ` [ID: ${c.credentialId}]` : '') +
-    (c.verifyLink ? `\n  Verify: ${c.verifyLink}` : '') +
+    ('credentialId' in c && c.credentialId ? ` [ID: ${c.credentialId}]` : '') +
+    ('verifyLink' in c && c.verifyLink ? `\n  Verify: ${c.verifyLink}` : '') +
     `\n  ${c.description}`
   ).join('\n\n')
 
   const projects = kb.projects.map(p =>
     `• ${p.name} (${p.category} · ${p.year})\n` +
+    ('period' in p && p.period ? `  Period: ${p.period}\n` : '') +
     `  ${p.description}\n` +
     `  Tech: ${p.tech.join(', ')}\n` +
     `  Live: ${p.liveLink}\n` +
@@ -440,7 +474,9 @@ ${thesis.highlights.map(h => `  - ${h}`).join('\n')}
 `.trim()
 
   const otherWork = kb.otherWork.map(p =>
-    `• ${p.name}\n  ${p.description}\n  Tech: ${p.tech.join(', ')}` +
+    `• ${p.name}` +
+    ('period' in p && p.period ? ` (${p.period})` : '') +
+    `\n  ${p.description}\n  Tech: ${p.tech.join(', ')}` +
     ('githubLink' in p && p.githubLink ? `\n  GitHub: ${p.githubLink}` : '')
   ).join('\n\n')
 
@@ -450,6 +486,7 @@ Name:     ${kb.personal.name}
 Title:    ${kb.personal.title}
 Location: ${kb.personal.location}
 Email:    ${kb.personal.email}
+Phone:    ${kb.personal.phone}
 LinkedIn: ${kb.personal.linkedin}
 GitHub:   ${kb.personal.github}
 Summary:  ${kb.personal.summary.trim()}

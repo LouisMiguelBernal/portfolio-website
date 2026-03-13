@@ -65,6 +65,88 @@ const projects = [
   },
 ]
 
+// ── Past project groups ───────────────────────────────────────────────────────
+const pastGroups = [
+  {
+    id: 'ml-ai',
+    label: 'ML / AI',
+    icon: '🤖',
+    color: '#4af2a1',
+    items: [
+      { title: 'Bank ANN', desc: 'TensorFlow ANN on bank advertising dataset achieving high accuracy classification.', tags: ['TensorFlow', 'ANN', 'Python'], github: 'https://github.com/LouisMiguelBernal/bank' },
+      { title: 'Census Income ML', desc: 'Advanced ML workflow on adult income data with Optuna hyperparameter tuning.', tags: ['Optuna', 'Scikit-learn', 'EDA'], github: 'https://github.com/LouisMiguelBernal/Census-Income' },
+      { title: 'Signa', desc: 'Real-time traffic sign detection app using computer vision for driver safety.', tags: ['Computer Vision', 'Python', 'OpenCV'], github: 'https://github.com/LouisMiguelBernal/Signa' },
+      { title: 'NLP Emotion', desc: 'Emotion response NLP program for sentiment and emotion classification.', tags: ['NLP', 'Jupyter', 'Transformers'], github: 'https://github.com/LouisMiguelBernal/NLP-Project' },
+      { title: 'Face Recognition SVM', desc: 'Support vector machine-based face recognition system.', tags: ['SVM', 'OpenCV', 'Scikit-learn'], github: 'https://github.com/LouisMiguelBernal/Face-Recognition-SVM' },
+      { title: 'Twitter Sentiment', desc: 'Sentiment analysis pipeline on Twitter/X data.', tags: ['NLP', 'NLTK', 'Pandas'], github: 'https://github.com/LouisMiguelBernal/Twitter-Sentiment-Analysis' },
+      { title: 'TwtAI', desc: 'AI-powered Twitter analytics and insights tool.', tags: ['AI', 'Python', 'Jupyter'], github: 'https://github.com/LouisMiguelBernal/TwtAI' },
+      { title: 'Customer Churn ML', desc: 'ML model predicting customer churn with feature engineering.', tags: ['XGBoost', 'Sklearn', 'EDA'], github: 'https://github.com/LouisMiguelBernal/Customer-Churn-ML' },
+      { title: 'Student Performance ML', desc: 'Predicting student academic performance with ML classifiers.', tags: ['Random Forest', 'Sklearn', 'Python'], github: 'https://github.com/LouisMiguelBernal/Student-Performance-ML' },
+      { title: 'Iris KNN', desc: 'Classic K-Nearest Neighbors implementation on Iris dataset.', tags: ['KNN', 'Sklearn', 'Python'], github: 'https://github.com/LouisMiguelBernal/Iris-KNN' },
+      { title: 'Medical Insurance ML', desc: 'Predicting medical insurance charges with feature importance analysis.', tags: ['Regression', 'Sklearn', 'Python'], github: 'https://github.com/LouisMiguelBernal/Medical-Insurance-ML' },
+      { title: 'Car Price Prediction', desc: 'Kaggle dataset: data cleaning, EDA, and ML model for car price estimation.', tags: ['XGBoost', 'EDA', 'Python'], github: 'https://github.com/LouisMiguelBernal/Car-Price-Prediction' },
+    ],
+  },
+  {
+    id: 'data-analysis',
+    label: 'Data Analysis',
+    icon: '📊',
+    color: '#7eb8f7',
+    items: [
+      { title: 'AirBNB Analysis', desc: 'Full data pipeline: cleaning, visualization, mining, and prediction on AirBNB NYC dataset.', tags: ['Pandas', 'Seaborn', 'PostgreSQL'], github: 'https://github.com/LouisMiguelBernal/AirBNB' },
+      { title: 'COVID-19 Barangay', desc: 'COVID-19 analysis at barangay level using geospatial and statistical methods.', tags: ['GeoPandas', 'Pandas', 'Jupyter'], github: 'https://github.com/LouisMiguelBernal/COVID-19-Barangay-Analysis' },
+      { title: 'Covid-19 Excel Analysis', desc: 'Comprehensive COVID-19 pandemic data processing and visualization in Excel.', tags: ['Excel', 'Data Viz', 'Statistics'], github: 'https://github.com/LouisMiguelBernal/Covid-19-Analysis' },
+      { title: 'Data Breach Analysis', desc: 'Exploratory analysis of global data breach incidents and patterns.', tags: ['Pandas', 'Matplotlib', 'EDA'], github: 'https://github.com/LouisMiguelBernal/Data-Breach-Analysis' },
+      { title: 'Starbucks Location Analysis', desc: 'Geospatial analysis of global Starbucks store locations and density.', tags: ['Folium', 'Pandas', 'Geospatial'], github: 'https://github.com/LouisMiguelBernal/Starbucks-Location-Analysis' },
+      { title: 'Coffee Sales Power BI', desc: 'Interactive Power BI dashboard tracking coffee sales KPIs and trends.', tags: ['Power BI', 'DAX', 'Dashboard'], github: 'https://github.com/LouisMiguelBernal/Coffee-Sales-Power-Bi' },
+      { title: 'Accenture Data Project', desc: 'Excel-driven analysis uncovering Accenture business insights and opportunities.', tags: ['Excel', 'Business Analysis', 'Visualization'], github: 'https://github.com/LouisMiguelBernal/Accenture-Data-Project' },
+      { title: 'FDIC Failed Banks', desc: 'Power BI analysis of U.S. bank failures from 2000–2024 with interactive maps.', tags: ['Power BI', 'FDIC Data', 'DAX'], github: 'https://github.com/LouisMiguelBernal/FDIC-Failed-Banks-Analysis' },
+      { title: 'House Price Power BI', desc: 'Interactive Power BI + PostgreSQL dashboard for house price analytics.', tags: ['Power BI', 'PostgreSQL', 'Dashboard'], github: 'https://github.com/LouisMiguelBernal/House-Price-Analysis-Dashboard-with-Power-BI-and-PostgreSQL' },
+      { title: 'Data Analysis Projects', desc: 'Collection of diverse data analysis projects covering multiple domains.', tags: ['Pandas', 'Jupyter', 'Matplotlib'], github: 'https://github.com/LouisMiguelBernal/Data-Analysis-Projects' },
+      { title: 'Global EV Analysis', desc: 'PostgreSQL + Python analysis of global electric vehicle adoption trends.', tags: ['PostgreSQL', 'EV Data', 'Pandas'], github: 'https://github.com/LouisMiguelBernal/Global-Electric-Vehicle-PostgreSQL-Python-Analysis' }
+    ],
+  },
+  {
+    id: 'finance-stocks',
+    label: 'Finance & Stocks',
+    icon: '📈',
+    color: '#34d399',
+    items: [
+      { title: 'Stock Indicators Streamlit', desc: 'Streamlit app displaying real-time stock technical indicators.', tags: ['Streamlit', 'YFinance', 'TA-Lib'], github: 'https://github.com/LouisMiguelBernal/Stock-Indicators-Streamlit' },
+      { title: 'Economic Indicators Forecast', desc: 'Forecasting stock performance using macroeconomic indicator signals.', tags: ['Sklearn', 'Pandas', 'Forecasting'], github: 'https://github.com/LouisMiguelBernal/Economic-Indicators-Stock-Forecast' },
+      { title: 'Top 3 Stock Indexes', desc: 'Comparative analysis of S&P 500, NASDAQ, and DJIA with top-tier indicators.', tags: ['Matplotlib', 'YFinance', 'EDA'], github: 'https://github.com/LouisMiguelBernal/Top-3-Stock-Indexes-Analysis' },
+      { title: 'Google Stock Analysis', desc: 'Deep dive into Google stock history: price, volatility, and performance metrics.', tags: ['Pandas', 'Matplotlib', 'YFinance'], github: 'https://github.com/LouisMiguelBernal/Google-Stock-Analysis' },
+      { title: 'Apple vs Samsung Stocks', desc: 'Comparative stock performance analysis between Apple and Samsung.', tags: ['Pandas', 'Jupyter', 'Visualization'], github: 'https://github.com/LouisMiguelBernal/Apple-Samsung-Stocks-Comparison' },
+      { title: 'BlackRock Diversification', desc: 'Portfolio diversification analysis on BlackRock financial data.', tags: ['Portfolio Analysis', 'Pandas', 'Finance'], github: 'https://github.com/LouisMiguelBernal/BlackRock-Stock-Diversification' },
+      { title: 'BTC Economic Indicators', desc: 'Bitcoin price correlation with macroeconomic indicators.', tags: ['Crypto', 'Pandas', 'Correlation'], github: 'https://github.com/LouisMiguelBernal/BTC-Econimic-Indicators' },
+    ],
+  },
+  {
+    id: 'real-estate',
+    label: 'Real Estate & Housing',
+    icon: '🏠',
+    color: '#fb923c',
+    items: [
+      { title: 'US House Price Prediction', desc: 'Sophisticated ML pipeline for predicting house prices across the United States.', tags: ['Sklearn', 'EDA', 'Regression'], github: 'https://github.com/LouisMiguelBernal/US-House-Price-Prediction' },
+      { title: 'California Housing', desc: 'Advanced data cleaning, visualization, and ML for California house price prediction.', tags: ['Sklearn', 'Seaborn', 'Regression'], github: 'https://github.com/LouisMiguelBernal/California-Housing-Prediction' },
+      { title: 'Melbourne House Prediction', desc: 'House price prediction for Melbourne real estate market.', tags: ['Sklearn', 'EDA', 'Python'], github: 'https://github.com/LouisMiguelBernal/Melbourne-House-Prediction' },
+      { title: 'Real Estate PostgreSQL', desc: 'PostgreSQL + Python integration pipeline for real estate data analysis.', tags: ['PostgreSQL', 'Python', 'ETL'], github: 'https://github.com/LouisMiguelBernal/PostgreSQL-and-Python-Integration-for-Real-Estate-Analysis' },
+    ],
+  },
+  {
+    id: 'software',
+    label: 'Software & Systems',
+    icon: '⚙️',
+    color: '#c084fc',
+    items: [
+      { title: 'Bank Database App', desc: 'Full banking management system using Python and SQLite for account handling.', tags: ['Python', 'SQLite', 'OOP'], github: 'https://github.com/LouisMiguelBernal/Bank-Database-Application' },
+      { title: 'Bank System SQL', desc: 'SQL-based bank management system with financial transaction queries.', tags: ['SQL', 'Banking', 'Database'], github: 'https://github.com/LouisMiguelBernal/Bank-System-SQL' },
+      { title: 'RPG Simulator', desc: 'Python RPG simulator with character selection, unique abilities, and a modification system.', tags: ['Python', 'OOP', 'Game Dev'], github: 'https://github.com/LouisMiguelBernal/RPG-SImulator' },
+      { title: 'Algorithms & Complexity', desc: 'C++ implementations of classic algorithms with complexity analysis.', tags: ['C++', 'Algorithms', 'DSA'], github: 'https://github.com/LouisMiguelBernal/ALGORITHMS-AND-COMPLEXITY' },
+    ],
+  },
+]
+
 function useScrollAnimation(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
     const el = ref.current
@@ -110,7 +192,6 @@ function ProjectCard({
         transition: 'width 0.55s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s ease, border-color 0.4s ease',
       }}
     >
-      {/* Intro image */}
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: `url(${project.imgIntro})`,
@@ -118,8 +199,6 @@ function ProjectCard({
         transition: 'transform 0.6s ease',
         transform: isActive && hovered ? 'scale(1.05)' : 'scale(1)',
       }} />
-
-      {/* _1 screenshot on hover */}
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: `url(${project.img1})`,
@@ -127,8 +206,6 @@ function ProjectCard({
         opacity: showDetail ? 1 : 0,
         transition: 'opacity 0.55s ease',
       }} />
-
-      {/* Overlay */}
       <div style={{
         position: 'absolute', inset: 0,
         background: isActive
@@ -139,16 +216,12 @@ function ProjectCard({
         transition: 'background 0.45s ease',
         zIndex: 2,
       }} />
-
-      {/* Accent stripe */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
         background: `linear-gradient(90deg, ${project.accent}, transparent)`,
         opacity: isActive ? 1 : 0.45,
         transition: 'opacity 0.4s ease', zIndex: 3,
       }} />
-
-      {/* Year badge */}
       {isActive && (
         <div style={{
           position: 'absolute', top: '18px', right: '18px', zIndex: 4,
@@ -161,8 +234,6 @@ function ProjectCard({
           {project.year}
         </div>
       )}
-
-      {/* Collapsed vertical label */}
       {!isActive && (
         <div style={{
           position: 'absolute', inset: 0, zIndex: 4,
@@ -179,8 +250,6 @@ function ProjectCard({
           </span>
         </div>
       )}
-
-      {/* Expanded content */}
       {isActive && (
         <div style={{
           position: 'absolute', bottom: 0, left: 0, right: 0,
@@ -199,7 +268,6 @@ function ProjectCard({
           }}>
             {project.category}
           </div>
-
           <h3 style={{
             fontFamily: 'var(--font-sans)', fontSize: '24px', fontWeight: 700,
             color: '#fff', letterSpacing: '-0.02em',
@@ -209,7 +277,6 @@ function ProjectCard({
           }}>
             {project.title}
           </h3>
-
           <div style={{
             maxHeight: showDetail ? '90px' : '0px', overflow: 'hidden',
             opacity: showDetail ? 1 : 0,
@@ -220,7 +287,6 @@ function ProjectCard({
               {project.description}
             </p>
           </div>
-
           <div style={{
             display: 'flex', flexWrap: 'wrap', gap: '6px',
             maxHeight: showDetail ? '60px' : '0px', overflow: 'hidden',
@@ -237,7 +303,6 @@ function ProjectCard({
               }}>{tag}</span>
             ))}
           </div>
-
           <div style={{
             display: 'flex', gap: '10px', alignItems: 'center',
             maxHeight: showDetail ? '50px' : '0px', overflow: 'hidden',
@@ -311,7 +376,6 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
         flexShrink: 0,
       }}
     >
-      {/* Intro image always */}
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: `url(${project.imgIntro})`,
@@ -319,8 +383,6 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
         transition: 'transform 0.5s ease',
         transform: tapped ? 'scale(1.04)' : 'scale(1)',
       }} />
-
-      {/* Screenshot on tap */}
       <div style={{
         position: 'absolute', inset: 0,
         backgroundImage: `url(${project.img1})`,
@@ -328,8 +390,6 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
         opacity: tapped ? 1 : 0,
         transition: 'opacity 0.5s ease',
       }} />
-
-      {/* Overlay */}
       <div style={{
         position: 'absolute', inset: 0,
         background: tapped
@@ -338,15 +398,11 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
         transition: 'background 0.4s ease',
         zIndex: 2,
       }} />
-
-      {/* Accent stripe */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '3px',
         background: `linear-gradient(90deg, ${project.accent}, transparent)`,
         zIndex: 3,
       }} />
-
-      {/* Tap hint — only when collapsed */}
       {!tapped && (
         <div style={{
           position: 'absolute', top: '14px', right: '14px', zIndex: 4,
@@ -359,13 +415,7 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
           TAP
         </div>
       )}
-
-      {/* Content */}
-      <div style={{
-        position: 'absolute', bottom: 0, left: 0, right: 0,
-        padding: '20px', zIndex: 4,
-      }}>
-        {/* Category */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px', zIndex: 4 }}>
         <div style={{
           display: 'inline-flex',
           fontFamily: 'var(--font-mono)', fontSize: '9px',
@@ -377,8 +427,6 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
         }}>
           {project.category}
         </div>
-
-        {/* Title */}
         <h3 style={{
           fontFamily: 'var(--font-sans)', fontSize: '20px', fontWeight: 700,
           color: '#fff', letterSpacing: '-0.02em', lineHeight: 1.15,
@@ -388,8 +436,6 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
         }}>
           {project.title}
         </h3>
-
-        {/* Description */}
         <div style={{
           maxHeight: tapped ? '100px' : '0px', overflow: 'hidden',
           opacity: tapped ? 1 : 0,
@@ -400,8 +446,6 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
             {project.description}
           </p>
         </div>
-
-        {/* Tags */}
         <div style={{
           display: 'flex', flexWrap: 'wrap', gap: '5px',
           maxHeight: tapped ? '60px' : '0px', overflow: 'hidden',
@@ -418,8 +462,6 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
             }}>{tag}</span>
           ))}
         </div>
-
-        {/* Buttons */}
         <div style={{
           display: 'flex', gap: '8px',
           maxHeight: tapped ? '50px' : '0px', overflow: 'hidden',
@@ -458,10 +500,195 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
             </svg>
             GitHub
           </a>
-          <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'rgba(255,255,255,0.3)', alignSelf: 'center' }}>
-            {project.year}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ── Past project mini-card ────────────────────────────────────────────────────
+function PastCard({
+  item,
+  color,
+  index,
+}: {
+  item: (typeof pastGroups[0]['items'])[0]
+  color: string
+  index: number
+}) {
+  const [hovered, setHovered] = useState(false)
+
+  return (
+    <a
+      href={item.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'block',
+        textDecoration: 'none',
+        background: hovered
+          ? `linear-gradient(135deg, ${color}0d 0%, ${color}06 100%)`
+          : 'var(--surface)',
+        border: `1px solid ${hovered ? color + '40' : 'var(--border)'}`,
+        borderRadius: '12px',
+        padding: '16px 18px',
+        transition: 'all 0.22s cubic-bezier(0.4,0,0.2,1)',
+        boxShadow: hovered ? `0 8px 28px ${color}14` : '0 1px 6px rgba(0,0,0,0.06)',
+        transform: hovered ? 'translateY(-2px)' : 'translateY(0)',
+        animationDelay: `${index * 0.04}s`,
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* top accent line */}
+      <div style={{
+        position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
+        background: `linear-gradient(90deg, ${color}, transparent)`,
+        opacity: hovered ? 1 : 0,
+        transition: 'opacity 0.22s ease',
+      }} />
+
+      {/* Header row */}
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', marginBottom: '8px' }}>
+        <span style={{
+          fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 600,
+          color: 'var(--text)', letterSpacing: '-0.01em', lineHeight: 1.3,
+        }}>
+          {item.title}
+        </span>
+        <svg
+          width="13" height="13" fill="none" viewBox="0 0 24 24"
+          stroke={color} strokeWidth="2.2" strokeLinecap="round"
+          style={{ flexShrink: 0, marginTop: '2px', opacity: hovered ? 1 : 0.35, transition: 'opacity 0.2s' }}
+        >
+          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+        </svg>
+      </div>
+
+      <p style={{
+        fontFamily: 'var(--font-sans)', fontSize: '12px',
+        color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 10px',
+      }}>
+        {item.desc}
+      </p>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+        {item.tags.map(tag => (
+          <span key={tag} style={{
+            fontFamily: 'var(--font-mono)', fontSize: '10px',
+            color: color,
+            background: `${color}12`,
+            border: `1px solid ${color}28`,
+            padding: '2px 7px', borderRadius: '4px', letterSpacing: '0.03em',
+          }}>{tag}</span>
+        ))}
+      </div>
+    </a>
+  )
+}
+
+// ── Past Projects block ───────────────────────────────────────────────────────
+function PastProjectsBlock() {
+  const [activeTab, setActiveTab] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  useScrollAnimation(containerRef as React.RefObject<HTMLElement>)
+
+  const group = pastGroups[activeTab]
+
+  return (
+    <div ref={containerRef} className="section-animate" style={{ marginTop: '80px' }}>
+
+      {/* Divider with label */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '36px' }}>
+        <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
+        <div style={{
+          display: 'inline-flex', alignItems: 'center', gap: '8px',
+          border: '1px solid var(--border)', borderRadius: '999px',
+          padding: '6px 16px',
+          background: 'var(--surface)',
+        }}>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>
+          </svg>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '0.1em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+            More Projects
           </span>
         </div>
+        <div style={{ flex: 1, height: '1px', background: 'var(--border)' }} />
+      </div>
+
+      {/* Tab pills */}
+      <div style={{
+        display: 'flex', flexWrap: 'wrap', gap: '8px',
+        marginBottom: '28px',
+      }}>
+        {pastGroups.map((g, i) => {
+          const active = i === activeTab
+          return (
+            <button
+              key={g.id}
+              onClick={() => setActiveTab(i)}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '7px',
+                fontFamily: 'var(--font-mono)', fontSize: '12px',
+                letterSpacing: '0.04em',
+                padding: '7px 16px', borderRadius: '999px',
+                border: `1px solid ${active ? g.color + '60' : 'var(--border)'}`,
+                background: active ? `${g.color}18` : 'var(--surface)',
+                color: active ? g.color : 'var(--text-muted)',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                boxShadow: active ? `0 0 16px ${g.color}22` : 'none',
+              }}
+            >
+              <span style={{ fontSize: '14px', lineHeight: 1 }}>{g.icon}</span>
+              {g.label}
+              <span style={{
+                fontFamily: 'var(--font-mono)', fontSize: '10px',
+                background: active ? `${g.color}25` : 'rgba(128,128,128,0.12)',
+                color: active ? g.color : 'var(--text-muted)',
+                padding: '1px 6px', borderRadius: '999px',
+                transition: 'all 0.2s',
+              }}>
+                {g.items.length}
+              </span>
+            </button>
+          )
+        })}
+      </div>
+
+      {/* Cards grid */}
+      <div
+        key={group.id}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+          gap: '12px',
+          animation: 'pastFadeIn 0.3s ease',
+        }}
+      >
+        {group.items.map((item, i) => (
+          <PastCard key={item.title} item={item} color={group.color} index={i} />
+        ))}
+      </div>
+
+      {/* Count footer */}
+      <div style={{
+        marginTop: '20px', textAlign: 'center',
+        fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)',
+        letterSpacing: '0.08em',
+      }}>
+        {group.items.length} projects in {group.label} ·{' '}
+        <a
+          href="https://github.com/LouisMiguelBernal"
+          target="_blank" rel="noopener noreferrer"
+          style={{ color: 'var(--accent)', textDecoration: 'none' }}
+        >
+          view all on GitHub ↗
+        </a>
       </div>
     </div>
   )
@@ -556,9 +783,16 @@ export default function Projects() {
           ))}
         </div>
 
+        {/* ── Past Projects grouped section ── */}
+        <PastProjectsBlock />
+
       </div>
 
       <style>{`
+        @keyframes pastFadeIn {
+          from { opacity: 0; transform: translateY(8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
         @media (max-width: 768px) {
           .proj-desktop { display: none !important; }
           .proj-mobile   { display: flex !important; }

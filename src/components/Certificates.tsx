@@ -14,7 +14,6 @@ type Certificate = {
 }
 
 const certificates: Certificate[] = [
-  // DeepLearning.AI — red (#e63946 brand red)
   {
     title: 'Deep Learning Specialization',
     issuer: 'DeepLearning.AI',
@@ -73,7 +72,6 @@ const certificates: Certificate[] = [
     accent: '#e63946',
     logo: '/certificates/DL_logo.png',
   },
-  // De La Salle University — kept as green (school brand)
   {
     title: 'Data Science Workshop 2024',
     issuer: 'De La Salle University',
@@ -82,7 +80,6 @@ const certificates: Certificate[] = [
     accent: '#4af2a1',
     logo: '/certificates/dlsu_logo.png',
   },
-  // Accenture — violet (#a100ff brand purple)
   {
     title: 'Accenture Data Analytics & Visualization',
     issuer: 'Forage',
@@ -92,7 +89,6 @@ const certificates: Certificate[] = [
     accent: '#a100ff',
     logo: '/certificates/ac_logo.png',
   },
-  // freeCodeCamp — blue (#0a0a23 is dark but brand blue is #006400, using accessible blue)
   {
     title: 'Data Analysis with Python',
     issuer: 'freeCodeCamp',
@@ -101,7 +97,6 @@ const certificates: Certificate[] = [
     accent: '#3b82f6',
     logo: '/certificates/fcc_logo.jpg',
   },
-  // Great Learning — blue
   {
     title: 'Data Analytics using Excel',
     issuer: 'Great Learning',
@@ -120,14 +115,13 @@ const certificates: Certificate[] = [
     accent: '#3b82f6',
     logo: '/certificates/GL_logo.jpg',
   },
-  // Google — green (#34a853 Google green)
   {
     title: 'Google Analytics',
     issuer: 'Google',
     dateRange: '2023',
     accent: '#34a853',
     verifyLink: 'https://support.google.com/analytics/answer/15068052#zippy=,get-started-using-google-analytics-introduction,go-further-with-advanced-features-in-google-analytics-advanced,answer-business-questions-with-google-analytics-intermediate,use-google-analytics-for-your-business-beginner',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/320px-Google_2015_logo.svg.png',
+    logo: '/certificates/google.png',
   },
 ]
 
@@ -235,7 +229,6 @@ function CertCard({ cert, onOpen }: { cert: Certificate; onOpen: () => void }) {
       className="cert-card"
       style={{
         width: '300px',
-        // Taller card — closer to project card height feel
         minHeight: '420px',
         flexShrink: 0,
         background: 'var(--bg-2)',
@@ -365,6 +358,8 @@ function CertCard({ cert, onOpen }: { cert: Certificate; onOpen: () => void }) {
 export default function Certificates() {
   const headRef = useRef<HTMLDivElement>(null)
   const [activeCert, setActiveCert] = useState<Certificate | null>(null)
+  const [paused, setPaused] = useState(false)
+  const isDragging = useRef(false)
 
   useEffect(() => {
     const el = headRef.current
@@ -375,6 +370,18 @@ export default function Certificates() {
     )
     ob.observe(el)
     return () => ob.disconnect()
+  }, [])
+
+  // Global mouseup so releasing outside the track still resumes
+  useEffect(() => {
+    const onMouseUp = () => {
+      if (isDragging.current) {
+        isDragging.current = false
+        setPaused(false)
+      }
+    }
+    window.addEventListener('mouseup', onMouseUp)
+    return () => window.removeEventListener('mouseup', onMouseUp)
   }, [])
 
   return (
@@ -404,18 +411,31 @@ export default function Certificates() {
 
       {/* ── Marquee ── */}
       <div style={{ position: 'relative' }}>
-
-
         <div style={{ overflow: 'hidden', paddingBottom: '8px' }}>
           <div
             className="marquee-track"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => {
+              if (!isDragging.current) setPaused(false)
+            }}
+            onMouseDown={() => {
+              isDragging.current = true
+              setPaused(true)
+            }}
+            onMouseUp={() => {
+              isDragging.current = false
+              setPaused(false)
+            }}
             style={{
               display: 'flex',
               gap: '20px',
               width: 'max-content',
               padding: '12px 0 16px',
               animation: 'marquee 40s linear infinite',
+              animationPlayState: paused ? 'paused' : 'running',
               willChange: 'transform',
+              userSelect: 'none',
+              cursor: isDragging.current ? 'grabbing' : 'grab',
             }}
           >
             {certificates.map((cert, i) => (
@@ -447,7 +467,6 @@ export default function Certificates() {
           to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* Desktop hover — lift + glow */
         @media (hover: hover) {
           .cert-card:hover {
             transform: translateY(-6px) !important;
@@ -456,17 +475,12 @@ export default function Certificates() {
           }
         }
 
-        /* Mobile — disable hover shadow that blocks interaction */
         @media (hover: none) {
           .cert-card:hover {
             transform: none !important;
             box-shadow: none !important;
             border-color: var(--border) !important;
           }
-        }
-
-        .marquee-track:hover {
-          animation-play-state: paused;
         }
       `}</style>
     </section>
