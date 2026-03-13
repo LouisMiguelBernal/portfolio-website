@@ -21,6 +21,208 @@ const stats = [
   { label: 'AUC-ROC',  value: '0.991', color: '#c084fc', bar: 0.991 },
 ]
 
+function CyberLinesBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let animId: number
+    let W = 0, H = 0
+
+    const resize = () => {
+      W = canvas.width = canvas.offsetWidth
+      H = canvas.height = canvas.offsetHeight
+    }
+    resize()
+    window.addEventListener('resize', resize)
+
+    // Nodes for the network lines
+    const NODE_COUNT = 38
+    interface Node {
+      x: number; y: number; vx: number; vy: number
+      pulse: number; pulseSpeed: number
+    }
+    const nodes: Node[] = Array.from({ length: NODE_COUNT }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      pulse: Math.random() * Math.PI * 2,
+      pulseSpeed: 0.015 + Math.random() * 0.02,
+    }))
+
+    // Flowing data packets along edges
+    interface Packet {
+      from: number; to: number; t: number; speed: number; color: string
+    }
+    const packets: Packet[] = []
+    const PACKET_COLORS = ['#4af2a1', '#7eb8f7', '#c084fc', '#4af2a1', '#4af2a1']
+
+    const maybeSpawnPacket = () => {
+      if (packets.length < 12 && Math.random() < 0.04) {
+        const from = Math.floor(Math.random() * NODE_COUNT)
+        // pick a close node
+        let to = from
+        let minDist = Infinity
+        nodes.forEach((n, i) => {
+          if (i === from) return
+          const d = Math.hypot(n.x - nodes[from].x, n.y - nodes[from].y)
+          if (d < 260 && d < minDist) { minDist = d; to = i }
+        })
+        if (to !== from) {
+          packets.push({
+            from, to, t: 0,
+            speed: 0.004 + Math.random() * 0.006,
+            color: PACKET_COLORS[Math.floor(Math.random() * PACKET_COLORS.length)],
+          })
+        }
+      }
+    }
+
+    let frame = 0
+    const draw = () => {
+      animId = requestAnimationFrame(draw)
+      frame++
+      ctx.clearRect(0, 0, W, H)
+
+      // Move nodes
+      nodes.forEach(n => {
+        n.x += n.vx; n.y += n.vy
+        if (n.x < 0 || n.x > W) n.vx *= -1
+        if (n.y < 0 || n.y > H) n.vy *= -1
+        n.pulse += n.pulseSpeed
+      })
+
+      // Draw edges between close nodes
+      for (let i = 0; i < NODE_COUNT; i++) {
+        for (let j = i + 1; j < NODE_COUNT; j++) {
+          const dx = nodes[j].x - nodes[i].x
+          const dy = nodes[j].y - nodes[i].y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist < 220) {
+            const alpha = (1 - dist / 220) * 0.18
+            ctx.beginPath()
+            ctx.moveTo(nodes[i].x, nodes[i].y)
+            ctx.lineTo(nodes[j].x, nodes[j].y)
+            ctx.strokeStyle = `rgba(74,242,161,${alpha})`
+            ctx.lineWidth = 0.8
+            ctx.stroke()
+          }
+        }
+      }
+
+      // Draw diagonal "cyber scan lines" — long diagonal streaks
+      if (frame % 3 === 0) {
+        const scanCount = 4
+        for (let s = 0; s < scanCount; s++) {
+          const prog = ((frame * 0.4 + s * (W / scanCount)) % (W + H))
+          const x1 = prog - H
+          const y1 = 0
+          const x2 = prog
+          const y2 = H
+          const grad = ctx.createLinearGradient(x1, y1, x2, y2)
+          grad.addColorStop(0, 'rgba(74,242,161,0)')
+          grad.addColorStop(0.4, 'rgba(74,242,161,0)')
+          grad.addColorStop(0.5, 'rgba(74,242,161,0.04)')
+          grad.addColorStop(0.55, 'rgba(74,242,161,0.1)')
+          grad.addColorStop(0.6, 'rgba(74,242,161,0.04)')
+          grad.addColorStop(0.7, 'rgba(74,242,161,0)')
+          grad.addColorStop(1, 'rgba(74,242,161,0)')
+          ctx.beginPath()
+          ctx.moveTo(x1, y1)
+          ctx.lineTo(x2, y2)
+          ctx.lineTo(x2 + 60, H)
+          ctx.lineTo(x1 + 60, 0)
+          ctx.closePath()
+          ctx.fillStyle = grad
+          ctx.fill()
+        }
+      }
+
+      // Horizontal scan line
+      const scanY = ((frame * 0.5) % (H + 80)) - 40
+      const hGrad = ctx.createLinearGradient(0, scanY - 30, 0, scanY + 30)
+      hGrad.addColorStop(0, 'rgba(74,242,161,0)')
+      hGrad.addColorStop(0.4, 'rgba(74,242,161,0.03)')
+      hGrad.addColorStop(0.5, 'rgba(74,242,161,0.07)')
+      hGrad.addColorStop(0.6, 'rgba(74,242,161,0.03)')
+      hGrad.addColorStop(1, 'rgba(74,242,161,0)')
+      ctx.fillStyle = hGrad
+      ctx.fillRect(0, scanY - 30, W, 60)
+
+      // Move & draw packets
+      maybeSpawnPacket()
+      for (let p = packets.length - 1; p >= 0; p--) {
+        const pk = packets[p]
+        pk.t += pk.speed
+        if (pk.t >= 1) { packets.splice(p, 1); continue }
+        const fn = nodes[pk.from], tn = nodes[pk.to]
+        const px = fn.x + (tn.x - fn.x) * pk.t
+        const py = fn.y + (tn.y - fn.y) * pk.t
+        // trail
+        const trailLen = 0.08
+        const t0 = Math.max(0, pk.t - trailLen)
+        const tx = fn.x + (tn.x - fn.x) * t0
+        const ty = fn.y + (tn.y - fn.y) * t0
+        const tGrad = ctx.createLinearGradient(tx, ty, px, py)
+        tGrad.addColorStop(0, `${pk.color}00`)
+        tGrad.addColorStop(1, `${pk.color}cc`)
+        ctx.beginPath()
+        ctx.moveTo(tx, ty)
+        ctx.lineTo(px, py)
+        ctx.strokeStyle = tGrad
+        ctx.lineWidth = 2
+        ctx.stroke()
+        // dot
+        ctx.beginPath()
+        ctx.arc(px, py, 2.5, 0, Math.PI * 2)
+        ctx.fillStyle = pk.color
+        ctx.shadowBlur = 8
+        ctx.shadowColor = pk.color
+        ctx.fill()
+        ctx.shadowBlur = 0
+      }
+
+      // Draw nodes
+      nodes.forEach(n => {
+        const glow = (Math.sin(n.pulse) + 1) / 2
+        const r = 1.5 + glow * 1.2
+        ctx.beginPath()
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(74,242,161,${0.25 + glow * 0.35})`
+        ctx.shadowBlur = 6 + glow * 6
+        ctx.shadowColor = '#4af2a1'
+        ctx.fill()
+        ctx.shadowBlur = 0
+      })
+    }
+
+    draw()
+    return () => {
+      cancelAnimationFrame(animId)
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+        opacity: 0.9,
+      }}
+    />
+  )
+}
+
 function TerminalCard() {
   const [visibleLines, setVisibleLines] = useState(0)
   const [looping, setLooping] = useState(false)
@@ -34,7 +236,7 @@ function TerminalCard() {
         timeouts.push(t)
       })
       const reset = setTimeout(() => {
-        setLooping(l => !l) // trigger re-run
+        setLooping(l => !l)
       }, terminalLines[terminalLines.length - 1].delay + 2800)
       timeouts.push(reset)
     }
@@ -50,7 +252,6 @@ function TerminalCard() {
       overflow: 'hidden',
       boxShadow: '0 32px 80px rgba(0,0,0,0.3)',
     }}>
-      {/* Title bar */}
       <div style={{
         display: 'flex', alignItems: 'center', gap: '8px',
         padding: '12px 16px',
@@ -64,14 +265,11 @@ function TerminalCard() {
           miguel@portfolio ~ model_training
         </span>
       </div>
-
-      {/* Terminal body */}
       <div style={{ padding: '20px', minHeight: '220px' }}>
         {terminalLines.slice(0, visibleLines).map((line, i) => (
           <div key={i} style={{
             fontFamily: 'var(--font-mono)', fontSize: '12px',
             color: line.color, lineHeight: '1.8',
-            opacity: 1,
             animation: 'termFadeIn 0.2s ease',
           }}>
             {line.text}
@@ -205,8 +403,8 @@ export default function Hero() {
         padding: '120px 32px 80px',
       }}
     >
-      {/* Background grid */}
-      <div className="grid-bg" style={{ position: 'absolute', inset: 0, opacity: 0.5 }} />
+      {/* Cyberlines canvas — replaces grid-bg */}
+      <CyberLinesBackground />
 
       {/* Gradient orbs */}
       <div style={{
@@ -234,7 +432,6 @@ export default function Hero() {
 
           {/* ── LEFT: Text content ── */}
           <div>
-            {/* Status badge */}
             <div style={{ marginBottom: '32px', animation: 'fadeUp 0.6s ease both', animationDelay: '0.1s' }}>
               <span style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
@@ -248,7 +445,6 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Headline */}
             <h1 style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2.4rem, 5vw, 5rem)',
@@ -263,7 +459,6 @@ export default function Hero() {
               Hi, I'm Miguel.
             </h1>
 
-            {/* Typed role */}
             <div style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.6rem, 3.5vw, 3.5rem)',
@@ -280,7 +475,6 @@ export default function Hero() {
               <span style={{ display: 'inline-block', width: '3px', height: '0.85em', marginLeft: '6px', marginTop: '0.1em', background: 'var(--accent)', borderRadius: '2px', animation: 'blink 1s step-end infinite' }} />
             </div>
 
-            {/* Description */}
             <p style={{
               fontFamily: 'var(--font-sans)',
               fontSize: 'clamp(15px, 1.6vw, 17px)',
@@ -295,7 +489,6 @@ export default function Hero() {
               I architect machine learning systems with rigorous data pipelines, optimized model training, and production deployment. Building intelligent solutions grounded in statistical learning and real-world impact.
             </p>
 
-            {/* CTAs */}
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', animation: 'fadeUp 0.7s ease both', animationDelay: '0.5s' }}>
               <a
                 href="#projects"
@@ -329,7 +522,6 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Stats row */}
             <div style={{
               display: 'flex', gap: '40px', flexWrap: 'wrap',
               marginTop: '56px',
