@@ -537,20 +537,21 @@ function LasallianSection() {
               </div>
 
               {/* Name */}
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 700, color: 'var(--text)', marginBottom: '3px', lineHeight: 1.3 }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 700, color: 'var(--text)', marginBottom: '4px', lineHeight: 1.3 }}>
                 {school.short}
               </p>
 
-              {/* Level */}
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-subtle)', marginBottom: '2px', lineHeight: 1.4 }}>
+              {/* Level — bumped from text-subtle to text-muted, font size 11→12px */}
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-muted)', marginBottom: '2px', lineHeight: 1.5 }}>
                 {school.detail}
               </p>
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--text-subtle)', marginBottom: '10px', lineHeight: 1.4, opacity: 0.7 }}>
+              {/* Sub — same bump */}
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)', marginBottom: '10px', lineHeight: 1.5, opacity: 0.75 }}>
                 {school.sub}
               </p>
 
               {/* Period */}
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#16a34a', marginBottom: '8px' }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#16a34a', marginBottom: '8px' }}>
                 {school.period}
               </p>
 
@@ -568,10 +569,10 @@ function LasallianSection() {
         })}
       </div>
 
-      {/* Footer quote */}
+      {/* Footer quote — bumped from text-subtle to text-muted, font size 12→13px */}
       <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid rgba(22,163,74,0.12)', display: 'flex', alignItems: 'center', gap: '10px' }}>
         <div style={{ width: '3px', height: '28px', borderRadius: '2px', background: 'linear-gradient(180deg, #16a34a, #4af2a1)', flexShrink: 0 }} />
-        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: 'var(--text-subtle)', lineHeight: 1.5, fontStyle: 'italic' }}>
+        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.6, fontStyle: 'italic', opacity: 0.85 }}>
           "Enter to learn, leave to serve" — rooted in Lasallian values since 2010.
         </p>
       </div>

@@ -60,19 +60,17 @@ const projects = [
     year: '2024',
     link: 'https://quantmaven.streamlit.app/',
     github: 'https://github.com/LouisMiguelBernal/QuantMaven',
-    imgIntro: '/projects/QM_Intro.jpg',
+    imgIntro: '/projects/QM_intro.jpg',
     img1: '/projects/QM_1.png',
   },
 ]
 
-// ── Past project groups ───────────────────────────────────────────────────────
 const pastGroups = [
   {
     id: 'ml-ai',
     label: 'ML / AI',
     icon: '🤖',
     color: '#4af2a1',
-    // ordered: most impactful / complex first
     items: [
       { title: 'Signa', desc: 'Real-time traffic sign detection app using computer vision for driver safety alerts.', tags: ['Computer Vision', 'Python', 'OpenCV'], github: 'https://github.com/LouisMiguelBernal/Signa' },
       { title: 'Face Recognition SVM', desc: 'Support vector machine-based face recognition system with image preprocessing.', tags: ['SVM', 'OpenCV', 'Scikit-learn'], github: 'https://github.com/LouisMiguelBernal/Face-Recognition-SVM' },
@@ -104,8 +102,7 @@ const pastGroups = [
       { title: 'Data Breach Analysis', desc: 'Exploratory analysis of global data breach incidents and breach patterns.', tags: ['Pandas', 'Matplotlib', 'EDA'], github: 'https://github.com/LouisMiguelBernal/Data-Breach-Analysis' },
       { title: 'Covid-19 Excel Analysis', desc: 'Comprehensive COVID-19 pandemic data processing and visualization in Excel.', tags: ['Excel', 'Data Viz', 'Statistics'], github: 'https://github.com/LouisMiguelBernal/Covid-19-Analysis' },
       { title: 'Data Analysis Projects', desc: 'Collection of diverse data analysis projects covering multiple domains.', tags: ['Pandas', 'Jupyter', 'Matplotlib'], github: 'https://github.com/LouisMiguelBernal/Data-Analysis-Projects' },
-      { title: 'COVID-19 Barangay', desc: 'COVID-19 analysis at barangay level using geospatial and statistical methods.', tags: ['GeoPandas', 'Pandas', 'Jupyter'], github: 'https://github.com/LouisMiguelBernal/COVID-19-Barangay-Analysis' }
-
+      { title: 'COVID-19 Barangay', desc: 'COVID-19 analysis at barangay level using geospatial and statistical methods.', tags: ['GeoPandas', 'Pandas', 'Jupyter'], github: 'https://github.com/LouisMiguelBernal/COVID-19-Barangay-Analysis' },
     ],
   },
   {
@@ -162,7 +159,6 @@ function useScrollAnimation(ref: React.RefObject<HTMLElement | null>) {
   }, [ref])
 }
 
-// ── Desktop accordion card ────────────────────────────────────────────────────
 function ProjectCard({
   project,
   isActive,
@@ -358,7 +354,6 @@ function ProjectCard({
   )
 }
 
-// ── Mobile stacked card ───────────────────────────────────────────────────────
 function MobileCard({ project }: { project: typeof projects[0] }) {
   const [tapped, setTapped] = useState(false)
 
@@ -508,8 +503,6 @@ function MobileCard({ project }: { project: typeof projects[0] }) {
   )
 }
 
-// ── Past project mini-card ────────────────────────────────────────────────────
-// ── Past project card — original box style ────────────────────────────────────
 function PastCard({
   item,
   color,
@@ -546,15 +539,12 @@ function PastCard({
         height: '100%',
       }}
     >
-      {/* Top accent line on hover */}
       <div style={{
         position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
         background: `linear-gradient(90deg, ${color}, transparent)`,
         opacity: hovered ? 1 : 0,
         transition: 'opacity 0.22s ease',
       }} />
-
-      {/* Header row */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', marginBottom: '8px' }}>
         <span style={{
           fontFamily: 'var(--font-mono)', fontSize: '13px', fontWeight: 600,
@@ -570,14 +560,12 @@ function PastCard({
           <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
         </svg>
       </div>
-
       <p style={{
         fontFamily: 'var(--font-sans)', fontSize: '12px',
         color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 10px',
       }}>
         {item.desc}
       </p>
-
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
         {item.tags.map(tag => (
           <span key={tag} style={{
@@ -593,9 +581,7 @@ function PastCard({
   )
 }
 
-// ── Past Projects block ───────────────────────────────────────────────────────
-// 3 columns × 2 rows = 6 cards per page; right-arrow only nav; bigger tab buttons
-const CARDS_PER_PAGE = 6   // 3 cols × 2 rows
+const CARDS_PER_PAGE = 6
 
 function PastProjectsBlock() {
   const [activeTab, setActiveTab] = useState(0)
@@ -621,10 +607,8 @@ function PastProjectsBlock() {
   return (
     <div ref={containerRef} className="section-animate" style={{ marginTop: '80px' }}>
 
-      {/* ── Cyber wire divider ── */}
+      {/* Cyber wire divider */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0px', marginBottom: '36px', position: 'relative' }}>
-
-        {/* LEFT cyber circuit SVG — traces converge at x=420 (right edge = badge entry) */}
         <div style={{ flex: 1, position: 'relative', height: '48px', overflow: 'visible' }}>
           <svg viewBox="0 0 420 48" width="100%" height="48" preserveAspectRatio="xMaxYMid meet" style={{ display: 'block', overflow: 'visible' }}>
             <defs>
@@ -647,25 +631,20 @@ function PastProjectsBlock() {
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            {/* All traces converge at (420, 24) — the badge left edge */}
             <path d="M0,24 L80,24 L110,10 L300,10 L340,24 L420,24" fill="none" stroke="url(#wireL1)" strokeWidth="1.3"/>
             <path d="M0,24 L70,24 L100,36 L280,36 L330,24 L420,24" fill="none" stroke="url(#wireL2)" strokeWidth="1"/>
             <path d="M20,24 L50,8 L200,8 L230,18 L420,18" fill="none" stroke="url(#wireL2)" strokeWidth="0.8"/>
             <path d="M0,24 L60,24 L90,40 L240,40 L290,30 L380,30 L420,24" fill="none" stroke="url(#wireL2)" strokeWidth="0.7"/>
             <path d="M110,10 L115,4 L310,4 L335,12" fill="none" stroke="url(#wireL2)" strokeWidth="0.6" strokeOpacity="0.4"/>
             <path d="M0,24 L40,24 L70,44 L200,44 L250,34 L420,34" fill="none" stroke="url(#wireL2)" strokeWidth="0.6" strokeOpacity="0.25"/>
-            {/* Main trunk */}
             <path d="M0,24 L420,24" fill="none" stroke="url(#wireL1)" strokeWidth="1.6"/>
-            {/* Terminal dot right at badge join */}
             <circle cx="420" cy="24" r="3.5" fill="#4af2a1" opacity="1" filter="url(#glowL)"/>
-            {/* Junction nodes */}
             <circle cx="110" cy="10" r="2.5" fill="#4af2a1" opacity="0.7" filter="url(#glowL)"/>
             <circle cx="280" cy="36" r="2" fill="#4af2a1" opacity="0.5"/>
             <circle cx="230" cy="18" r="1.8" fill="#4af2a1" opacity="0.4"/>
             <circle cx="200" cy="8" r="1.5" fill="#4af2a1" opacity="0.35"/>
             <circle cx="90" cy="40" r="2" fill="#4af2a1" opacity="0.35"/>
             <circle cx="50" cy="8" r="1.5" fill="#4af2a1" opacity="0.3"/>
-            {/* Flowing orb toward badge */}
             <circle r="4" fill="url(#orbL)" filter="url(#glowL)" opacity="0.95">
               <animateMotion dur="3.4s" repeatCount="indefinite">
                 <mpath href="#pathLMain"/>
@@ -674,8 +653,6 @@ function PastProjectsBlock() {
             <path id="pathLMain" d="M0,24 L420,24" fill="none"/>
           </svg>
         </div>
-
-        {/* CENTER badge */}
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: '10px',
           border: '1px solid rgba(74,242,161,0.5)',
@@ -688,45 +665,20 @@ function PastProjectsBlock() {
           overflow: 'hidden',
           zIndex: 2,
         }}>
-          {/* inner top shine */}
-          <div style={{
-            position: 'absolute', top: 0, left: '15%', right: '15%', height: '1px',
-            background: 'linear-gradient(90deg, transparent, rgba(74,242,161,0.7), transparent)',
-          }}/>
-          {/* left connector dot */}
-          <div style={{
-            position: 'absolute', left: '-1px', top: '50%', transform: 'translateY(-50%)',
-            width: '5px', height: '5px', borderRadius: '50%',
-            background: '#4af2a1', boxShadow: '0 0 8px #4af2a1, 0 0 16px rgba(74,242,161,0.6)',
-          }}/>
-          {/* right connector dot */}
-          <div style={{
-            position: 'absolute', right: '-1px', top: '50%', transform: 'translateY(-50%)',
-            width: '5px', height: '5px', borderRadius: '50%',
-            background: '#4af2a1', boxShadow: '0 0 8px #4af2a1, 0 0 16px rgba(74,242,161,0.6)',
-          }}/>
+          <div style={{ position: 'absolute', top: 0, left: '15%', right: '15%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(74,242,161,0.7), transparent)' }}/>
+          <div style={{ position: 'absolute', left: '-1px', top: '50%', transform: 'translateY(-50%)', width: '5px', height: '5px', borderRadius: '50%', background: '#4af2a1', boxShadow: '0 0 8px #4af2a1, 0 0 16px rgba(74,242,161,0.6)' }}/>
+          <div style={{ position: 'absolute', right: '-1px', top: '50%', transform: 'translateY(-50%)', width: '5px', height: '5px', borderRadius: '50%', background: '#4af2a1', boxShadow: '0 0 8px #4af2a1, 0 0 16px rgba(74,242,161,0.6)' }}/>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4af2a1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, filter: 'drop-shadow(0 0 4px #4af2a1)' }}>
             <rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/>
             <rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>
           </svg>
-          <span style={{
-            fontFamily: 'var(--font-mono)', fontSize: '14px', color: '#4af2a1',
-            letterSpacing: '0.14em', textTransform: 'uppercase', whiteSpace: 'nowrap',
-            fontWeight: 700, textShadow: '0 0 12px rgba(74,242,161,0.5)',
-          }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', color: '#4af2a1', letterSpacing: '0.14em', textTransform: 'uppercase', whiteSpace: 'nowrap', fontWeight: 700, textShadow: '0 0 12px rgba(74,242,161,0.5)' }}>
             More Projects
           </span>
-          <span style={{
-            fontFamily: 'var(--font-mono)', fontSize: '13px',
-            background: '#4af2a1', color: '#050a07',
-            padding: '3px 10px', borderRadius: '8px', fontWeight: 800,
-            boxShadow: '0 0 12px rgba(74,242,161,0.5)',
-          }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', background: '#4af2a1', color: '#050a07', padding: '3px 10px', borderRadius: '8px', fontWeight: 800, boxShadow: '0 0 12px rgba(74,242,161,0.5)' }}>
             {pastGroups.reduce((s, g) => s + g.items.length, 0)}
           </span>
         </div>
-
-        {/* RIGHT cyber circuit SVG — traces fan out from x=0 (badge right edge) */}
         <div style={{ flex: 1, position: 'relative', height: '48px', overflow: 'visible' }}>
           <svg viewBox="0 0 420 48" width="100%" height="48" preserveAspectRatio="xMinYMid meet" style={{ display: 'block', overflow: 'visible' }}>
             <defs>
@@ -749,25 +701,20 @@ function PastProjectsBlock() {
                 <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
             </defs>
-            {/* Traces fan out from (0,24) */}
             <path d="M0,24 L80,24 L120,10 L310,10 L340,24 L420,24" fill="none" stroke="url(#wireR1)" strokeWidth="1.3"/>
             <path d="M0,24 L90,24 L130,36 L300,36 L350,24 L420,24" fill="none" stroke="url(#wireR2)" strokeWidth="1"/>
             <path d="M0,18 L200,18 L240,8 L380,8 L420,24" fill="none" stroke="url(#wireR2)" strokeWidth="0.8"/>
             <path d="M0,24 L40,24 L90,40 L260,40 L310,30 L420,30" fill="none" stroke="url(#wireR2)" strokeWidth="0.7"/>
             <path d="M120,10 L125,4 L320,4 L345,12" fill="none" stroke="url(#wireR2)" strokeWidth="0.6" strokeOpacity="0.4"/>
             <path d="M0,34 L160,34 L210,44 L380,44 L420,24" fill="none" stroke="url(#wireR2)" strokeWidth="0.6" strokeOpacity="0.25"/>
-            {/* Main trunk */}
             <path d="M0,24 L420,24" fill="none" stroke="url(#wireR1)" strokeWidth="1.6"/>
-            {/* Terminal dot at badge join (left edge) */}
             <circle cx="0" cy="24" r="3.5" fill="#4af2a1" opacity="1" filter="url(#glowR)"/>
-            {/* Junction nodes */}
             <circle cx="120" cy="10" r="2.5" fill="#4af2a1" opacity="0.7" filter="url(#glowR)"/>
             <circle cx="300" cy="36" r="2" fill="#4af2a1" opacity="0.5"/>
             <circle cx="240" cy="8" r="1.8" fill="#4af2a1" opacity="0.4"/>
             <circle cx="200" cy="8" r="1.5" fill="#4af2a1" opacity="0.35"/>
             <circle cx="90" cy="40" r="2" fill="#4af2a1" opacity="0.35"/>
             <circle cx="380" cy="8" r="1.5" fill="#4af2a1" opacity="0.3"/>
-            {/* Flowing orb away from badge */}
             <circle r="4" fill="url(#orbR)" filter="url(#glowR)" opacity="0.95">
               <animateMotion dur="3.4s" begin="1.7s" repeatCount="indefinite">
                 <mpath href="#pathRMain"/>
@@ -778,8 +725,15 @@ function PastProjectsBlock() {
         </div>
       </div>
 
-      {/* ── Category tab buttons — single-line compact ── */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '28px', alignItems: 'center' }}>
+      {/* ── Tab buttons: full-width, space-between on desktop; centered wrap on mobile ── */}
+      <div className="past-tabs-row" style={{
+        display: 'flex',
+        gap: '8px',
+        marginBottom: '28px',
+        alignItems: 'center',
+        /* desktop: stretch across full card-grid width */
+        justifyContent: 'space-between',
+      }}>
         {pastGroups.map((g, i) => {
           const active = i === activeTab
           const hover = tabHover === i && !active
@@ -793,7 +747,10 @@ function PastProjectsBlock() {
                 display: 'inline-flex', alignItems: 'center', gap: '7px',
                 fontFamily: 'var(--font-mono)', fontSize: '12px',
                 letterSpacing: '0.03em', whiteSpace: 'nowrap',
-                padding: '7px 14px', borderRadius: '8px',
+                /* flex: 1 so all buttons fill equal width on desktop */
+                flex: 1,
+                justifyContent: 'center',
+                padding: '8px 10px', borderRadius: '8px',
                 border: `1px solid ${active ? g.color + '65' : hover ? g.color + '30' : 'var(--border)'}`,
                 background: active
                   ? `linear-gradient(135deg, ${g.color}1e, ${g.color}09)`
@@ -824,7 +781,7 @@ function PastProjectsBlock() {
         })}
       </div>
 
-      {/* ── Cards grid: 3 cols × 2 rows ── */}
+      {/* Cards grid */}
       <div style={{ position: 'relative' }}>
         <div
           key={`${group.id}-${page}`}
@@ -843,7 +800,6 @@ function PastProjectsBlock() {
           ))}
         </div>
 
-        {/* Left arrow — go to previous page */}
         {page > 0 && (
           <button
             onClick={() => {
@@ -852,87 +808,47 @@ function PastProjectsBlock() {
               setTimeout(() => { setPage(p => p - 1); setAnimating(false) }, 200)
             }}
             style={{
-              position: 'absolute',
-              left: '-20px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: '40px', height: '40px',
-              borderRadius: '50%',
+              position: 'absolute', left: '-20px', top: '50%', transform: 'translateY(-50%)',
+              width: '40px', height: '40px', borderRadius: '50%',
               background: `linear-gradient(135deg, ${group.color}30, ${group.color}15)`,
-              border: `1px solid ${group.color}55`,
-              color: group.color,
-              cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              border: `1px solid ${group.color}55`, color: group.color,
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
               boxShadow: `0 4px 18px ${group.color}30, 0 0 0 1px ${group.color}20`,
-              transition: 'all 0.2s ease',
-              zIndex: 5,
+              transition: 'all 0.2s ease', zIndex: 5,
             }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = `linear-gradient(135deg, ${group.color}50, ${group.color}28)`
-              e.currentTarget.style.boxShadow = `0 6px 24px ${group.color}45, 0 0 0 1px ${group.color}40`
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = `linear-gradient(135deg, ${group.color}30, ${group.color}15)`
-              e.currentTarget.style.boxShadow = `0 4px 18px ${group.color}30, 0 0 0 1px ${group.color}20`
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1)'
-            }}
+            onMouseEnter={e => { e.currentTarget.style.background = `linear-gradient(135deg, ${group.color}50, ${group.color}28)`; e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = `linear-gradient(135deg, ${group.color}30, ${group.color}15)`; e.currentTarget.style.transform = 'translateY(-50%) scale(1)' }}
           >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <polyline points="15 18 9 12 15 6"/>
-            </svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6"/></svg>
           </button>
         )}
 
-        {/* Right arrow — go to next page */}
         {canNext && (
           <button
             onClick={goNext}
             style={{
-              position: 'absolute',
-              right: '-20px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              width: '40px', height: '40px',
-              borderRadius: '50%',
+              position: 'absolute', right: '-20px', top: '50%', transform: 'translateY(-50%)',
+              width: '40px', height: '40px', borderRadius: '50%',
               background: `linear-gradient(135deg, ${group.color}30, ${group.color}15)`,
-              border: `1px solid ${group.color}55`,
-              color: group.color,
-              cursor: 'pointer',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              border: `1px solid ${group.color}55`, color: group.color,
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
               boxShadow: `0 4px 18px ${group.color}30, 0 0 0 1px ${group.color}20`,
-              transition: 'all 0.2s ease',
-              zIndex: 5,
+              transition: 'all 0.2s ease', zIndex: 5,
             }}
-            onMouseEnter={e => {
-              e.currentTarget.style.background = `linear-gradient(135deg, ${group.color}50, ${group.color}28)`
-              e.currentTarget.style.boxShadow = `0 6px 24px ${group.color}45, 0 0 0 1px ${group.color}40`
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.background = `linear-gradient(135deg, ${group.color}30, ${group.color}15)`
-              e.currentTarget.style.boxShadow = `0 4px 18px ${group.color}30, 0 0 0 1px ${group.color}20`
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1)'
-            }}
+            onMouseEnter={e => { e.currentTarget.style.background = `linear-gradient(135deg, ${group.color}50, ${group.color}28)`; e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = `linear-gradient(135deg, ${group.color}30, ${group.color}15)`; e.currentTarget.style.transform = 'translateY(-50%) scale(1)' }}
           >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <polyline points="9 18 15 12 9 6"/>
-            </svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
         )}
       </div>
 
-      {/* ── Footer: page dots + count + github link ── */}
-      <div style={{
-        marginTop: '20px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px',
-      }}>
-        {/* Page dots */}
+      {/* Footer */}
+      <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           {totalPages > 1 && Array.from({ length: totalPages }).map((_, i) => (
             <button key={i} onClick={() => setPage(i)} style={{
-              width: i === page ? '24px' : '8px', height: '8px',
-              borderRadius: '4px',
+              width: i === page ? '24px' : '8px', height: '8px', borderRadius: '4px',
               background: i === page ? group.color : 'var(--border)',
               border: 'none', cursor: 'pointer', padding: 0,
               transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
@@ -945,7 +861,6 @@ function PastProjectsBlock() {
             </span>
           )}
         </div>
-
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
             {pageItems.length} of {group.items.length} in {group.label}
@@ -973,7 +888,6 @@ function PastProjectsBlock() {
   )
 }
 
-// ── Section ───────────────────────────────────────────────────────────────────
 export default function Projects() {
   const headRef = useRef<HTMLDivElement>(null)
   useScrollAnimation(headRef as React.RefObject<HTMLElement>)
@@ -1013,8 +927,6 @@ export default function Projects() {
               End-to-End Projects Showcasing my Expertise in AI Development
             </p>
           </div>
-
-          {/* Arrows — desktop only */}
           <div className="proj-arrows" style={{ display: 'flex', gap: '10px' }}>
             {[{ fn: prev, dir: 'left' }, { fn: next, dir: 'right' }].map(({ fn, dir }) => (
               <button key={dir} onClick={fn} style={{
@@ -1035,19 +947,17 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* ── DESKTOP: accordion row ── */}
+        {/* Desktop accordion */}
         <div className="proj-desktop" style={{ display: 'flex', gap: '12px', alignItems: 'stretch', overflowX: 'hidden' }}>
           {projects.map((p, i) => (
             <ProjectCard key={p.title} project={p} isActive={i === activeIndex} onHover={() => setActiveIndex(i)} />
           ))}
         </div>
 
-        {/* Desktop dot indicators */}
         <div className="proj-desktop" style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '28px' }}>
           {projects.map((p, i) => (
             <button key={i} onClick={() => setActiveIndex(i)} style={{
-              width: i === activeIndex ? '28px' : '8px', height: '8px',
-              borderRadius: '4px',
+              width: i === activeIndex ? '28px' : '8px', height: '8px', borderRadius: '4px',
               background: i === activeIndex ? projects[activeIndex].accent : 'var(--border)',
               border: 'none', cursor: 'pointer', padding: 0,
               transition: 'all 0.35s ease',
@@ -1055,16 +965,14 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* ── MOBILE: stacked tap cards ── */}
+        {/* Mobile stacked */}
         <div className="proj-mobile" style={{ display: 'none', flexDirection: 'column', gap: '16px' }}>
           {projects.map(p => (
             <MobileCard key={p.title} project={p} />
           ))}
         </div>
 
-        {/* ── Past Projects grouped section ── */}
         <PastProjectsBlock />
-
       </div>
 
       <style>{`
@@ -1077,8 +985,17 @@ export default function Projects() {
           .proj-mobile   { display: flex !important; }
           .proj-arrows   { display: none !important; }
         }
+        /* Mobile: tabs wrap and center */
         @media (max-width: 640px) {
           .past-cards-grid { grid-template-columns: 1fr !important; }
+          .past-tabs-row {
+            justify-content: center !important;
+            flex-wrap: wrap !important;
+          }
+          .past-tabs-row button {
+            flex: 0 1 auto !important;
+            min-width: 0 !important;
+          }
         }
       `}</style>
     </section>

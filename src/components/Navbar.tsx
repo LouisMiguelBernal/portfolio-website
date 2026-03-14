@@ -38,7 +38,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* All nav background colors handled via CSS variables here — never hardcoded */}
       <style>{`
         .navbar-scrolled {
           background: var(--bg-2) !important;
@@ -52,6 +51,91 @@ export default function Navbar() {
         @media (max-width: 700px) {
           .desktop-nav { display: none !important; }
           .mobile-right { display: flex !important; }
+        }
+
+        /* ── Logo glow ── */
+        .logo-glow-wrapper {
+          position: relative;
+          width: 38px;
+          height: 38px;
+          border-radius: 9px;
+          flex-shrink: 0;
+          overflow: hidden;
+          /* subtle spinning conic border via outline trick using ::before */
+          padding: 1.5px;
+          background: conic-gradient(
+            from 0deg,
+            rgba(74,242,161,0.0)  0%,
+            rgba(74,242,161,0.7) 30%,
+            rgba(74,242,161,0.0) 55%,
+            rgba(74,242,161,0.4) 80%,
+            rgba(74,242,161,0.0) 100%
+          );
+          box-shadow:
+            0 0 6px  rgba(74,242,161,0.30),
+            0 0 16px rgba(74,242,161,0.12);
+          animation: subtleGlow 3s ease-in-out infinite, spinBorder 4s linear infinite;
+        }
+
+        .logo-glow-inner {
+          width: 100%;
+          height: 100%;
+          border-radius: 7px;
+          overflow: hidden;
+          display: block;
+        }
+
+        .logo-glow-inner img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        @keyframes subtleGlow {
+          0%, 100% {
+            box-shadow:
+              0 0 5px  rgba(74,242,161,0.25),
+              0 0 14px rgba(74,242,161,0.10);
+          }
+          50% {
+            box-shadow:
+              0 0 9px  rgba(74,242,161,0.45),
+              0 0 24px rgba(74,242,161,0.18);
+          }
+        }
+
+        @keyframes spinBorder {
+          from { background-position: 0% 0%; }
+          to   { }
+        }
+
+        /* We rotate the wrapper's conic-gradient by animating a pseudo */
+        .logo-glow-wrapper::before {
+          content: '';
+          position: absolute;
+          inset: -50%;
+          background: conic-gradient(
+            from 0deg,
+            rgba(74,242,161,0.0)  0%,
+            rgba(74,242,161,0.75) 25%,
+            rgba(74,242,161,0.0)  50%,
+            rgba(74,242,161,0.45) 75%,
+            rgba(74,242,161,0.0)  100%
+          );
+          animation: rotateConic 4s linear infinite;
+          z-index: 0;
+          border-radius: 50%;
+        }
+
+        .logo-glow-inner {
+          position: relative;
+          z-index: 1;
+        }
+
+        @keyframes rotateConic {
+          from { transform: rotate(0deg); }
+          to   { transform: rotate(360deg); }
         }
       `}</style>
 
@@ -71,68 +155,17 @@ export default function Navbar() {
         }}
       >
         <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          {/* Animated Logo Mark */}
+
+          {/* Logo */}
           <a href="#" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ position: 'relative', width: '36px', height: '36px', flexShrink: 0 }}>
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Rotating outer dashed ring */}
-                <circle
-                  cx="18" cy="18" r="16"
-                  stroke="var(--accent)" strokeWidth="1"
-                  strokeDasharray="5 3"
-                  opacity="0.35"
-                  style={{ animation: 'logoSpin 10s linear infinite', transformOrigin: '18px 18px' }}
-                />
-                {/* Inner bg */}
-                <circle cx="18" cy="18" r="13" fill="var(--accent-dim)" stroke="rgba(74,242,161,0.2)" strokeWidth="1" />
-
-                {/* Input layer nodes */}
-                <circle cx="10" cy="12" r="2" fill="var(--accent)" style={{ animation: 'nnPulse 2.8s ease-in-out infinite 0s' }} />
-                <circle cx="10" cy="18" r="2" fill="var(--accent)" style={{ animation: 'nnPulse 2.8s ease-in-out infinite 0.35s' }} />
-                <circle cx="10" cy="24" r="2" fill="var(--accent)" style={{ animation: 'nnPulse 2.8s ease-in-out infinite 0.7s' }} />
-
-                {/* Hidden layer nodes */}
-                <circle cx="18" cy="14.5" r="2" fill="var(--accent)" style={{ animation: 'nnPulse 2.8s ease-in-out infinite 0.9s' }} />
-                <circle cx="18" cy="21.5" r="2" fill="var(--accent)" style={{ animation: 'nnPulse 2.8s ease-in-out infinite 1.2s' }} />
-
-                {/* Output node */}
-                <circle cx="26" cy="18" r="2.3" fill="var(--accent)" style={{ animation: 'nnPulse 2.8s ease-in-out infinite 1.6s' }} />
-
-                {/* Connections input to hidden */}
-                <line x1="12" y1="12" x2="16" y2="14.5" stroke="var(--accent)" strokeWidth="0.7" opacity="0.45" />
-                <line x1="12" y1="12" x2="16" y2="21.5" stroke="var(--accent)" strokeWidth="0.7" opacity="0.2" />
-                <line x1="12" y1="18" x2="16" y2="14.5" stroke="var(--accent)" strokeWidth="0.7" opacity="0.45" />
-                <line x1="12" y1="18" x2="16" y2="21.5" stroke="var(--accent)" strokeWidth="0.7" opacity="0.45" />
-                <line x1="12" y1="24" x2="16" y2="14.5" stroke="var(--accent)" strokeWidth="0.7" opacity="0.2" />
-                <line x1="12" y1="24" x2="16" y2="21.5" stroke="var(--accent)" strokeWidth="0.7" opacity="0.45" />
-
-                {/* Connections hidden to output */}
-                <line x1="20" y1="14.5" x2="23.7" y2="18" stroke="var(--accent)" strokeWidth="0.7" opacity="0.55" />
-                <line x1="20" y1="21.5" x2="23.7" y2="18" stroke="var(--accent)" strokeWidth="0.7" opacity="0.55" />
-
-                {/* Traveling signal dots */}
-                <circle r="1.2" fill="var(--accent)" opacity="0.95">
-                  <animateMotion dur="2.2s" repeatCount="indefinite" begin="0s" path="M10,12 L18,14.5" />
-                </circle>
-                <circle r="1.2" fill="var(--accent)" opacity="0.95">
-                  <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.7s" path="M10,24 L18,21.5" />
-                </circle>
-                <circle r="1.2" fill="var(--accent)" opacity="0.95">
-                  <animateMotion dur="2.2s" repeatCount="indefinite" begin="1.4s" path="M18,14.5 L26,18" />
-                </circle>
-              </svg>
-              <style>{`
-                @keyframes logoSpin {
-                  from { transform: rotate(0deg); }
-                  to   { transform: rotate(360deg); }
-                }
-                @keyframes nnPulse {
-                  0%, 100% { opacity: 0.4; }
-                  50%      { opacity: 1; }
-                }
-              `}</style>
+            <div className="logo-glow-wrapper">
+              <div className="logo-glow-inner">
+                <img src="/favicon.ico" alt="Logo" />
+              </div>
             </div>
-            <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '15px', color: 'var(--text)', letterSpacing: '-0.01em' }}>Louis Miguel Bernal</span>
+            <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '15px', color: 'var(--text)', letterSpacing: '-0.01em' }}>
+              Louis Miguel Bernal
+            </span>
           </a>
 
           {/* Desktop Links */}
