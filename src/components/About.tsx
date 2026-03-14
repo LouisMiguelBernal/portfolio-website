@@ -426,7 +426,6 @@ function InfoCards() {
   )
 }
 
-// ── Horizontal Lasallian Timeline ─────────────────────────────────────────────
 function LasallianSection() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
 
@@ -441,24 +440,11 @@ function LasallianSection() {
       overflow: 'hidden',
     }}>
       {/* Corner glows */}
-      <div style={{
-        position: 'absolute', top: '-60px', right: '-60px',
-        width: '200px', height: '200px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(22,163,74,0.10), transparent 70%)',
-        pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', bottom: '-40px', left: '-40px',
-        width: '140px', height: '140px', borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(74,242,161,0.06), transparent 70%)',
-        pointerEvents: 'none',
-      }} />
+      <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(22,163,74,0.10), transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: '-40px', left: '-40px', width: '140px', height: '140px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(74,242,161,0.06), transparent 70%)', pointerEvents: 'none' }} />
 
       {/* Top accent line */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0, height: '2px',
-        background: 'linear-gradient(90deg, transparent, #16a34a88, #4af2a155, transparent)',
-      }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #16a34a88, #4af2a155, transparent)' }} />
 
       {/* Header */}
       <div style={{ marginBottom: '28px' }}>
@@ -478,10 +464,40 @@ function LasallianSection() {
         </p>
       </div>
 
-      {/* Horizontal 4-column grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px', position: 'relative' }}>
+      {/* ── Grid: 4-col desktop, horizontal scroll on mobile ── */}
+      <style>{`
+        .lasallian-scroll-wrapper {
+          position: relative;
+        }
+        .lasallian-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 12px;
+          position: relative;
+        }
+        @media (max-width: 640px) {
+          .lasallian-grid {
+            display: flex !important;
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 12px;
+            padding-bottom: 8px;
+          }
+          .lasallian-grid::-webkit-scrollbar { height: 3px; }
+          .lasallian-grid::-webkit-scrollbar-track { background: transparent; }
+          .lasallian-grid::-webkit-scrollbar-thumb { background: rgba(22,163,74,0.35); border-radius: 2px; }
+          .lasallian-card {
+            flex: 0 0 72vw !important;
+            max-width: 72vw !important;
+            scroll-snap-align: start;
+          }
+        }
+      `}</style>
 
-        {/* Connecting line behind cards */}
+      <div className="lasallian-scroll-wrapper">
+        {/* Connecting line — desktop only, hidden on mobile via overflow */}
         <div style={{
           position: 'absolute', top: '46px',
           left: '12.5%', right: '12.5%',
@@ -490,86 +506,78 @@ function LasallianSection() {
           zIndex: 0, pointerEvents: 'none',
         }} />
 
-        {LASALLIAN_SCHOOLS.map((school, i) => {
-          const isHovered = hoveredIdx === i
-          return (
-            <div
-              key={i}
-              onMouseEnter={() => setHoveredIdx(i)}
-              onMouseLeave={() => setHoveredIdx(null)}
-              style={{
-                display: 'flex', flexDirection: 'column', alignItems: 'center',
-                textAlign: 'center',
-                background: isHovered ? 'rgba(22,163,74,0.09)' : 'rgba(22,163,74,0.03)',
-                border: `1px solid ${isHovered ? 'rgba(22,163,74,0.40)' : 'rgba(22,163,74,0.12)'}`,
-                borderRadius: '16px', padding: '20px 12px 16px',
-                position: 'relative', zIndex: 1,
-                transform: isHovered ? 'translateY(-6px)' : 'translateY(0)',
-                boxShadow: isHovered ? '0 16px 32px rgba(22,163,74,0.15)' : 'none',
-                transition: 'all 0.28s ease', cursor: 'default',
-              }}
-            >
-              {/* Step bubble */}
-              <div style={{
-                position: 'absolute', top: '-11px',
-                width: '22px', height: '22px', borderRadius: '50%',
-                background: isHovered ? '#16a34a' : 'var(--bg-2)',
-                border: `1px solid ${isHovered ? '#16a34a' : 'rgba(22,163,74,0.35)'}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontFamily: 'var(--font-mono)', fontSize: '10px',
-                color: isHovered ? '#fff' : '#16a34a',
-                transition: 'all 0.28s ease',
-              }}>
-                {i + 1}
+        <div className="lasallian-grid">
+          {LASALLIAN_SCHOOLS.map((school, i) => {
+            const isHovered = hoveredIdx === i
+            return (
+              <div
+                key={i}
+                className="lasallian-card"
+                onMouseEnter={() => setHoveredIdx(i)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                style={{
+                  display: 'flex', flexDirection: 'column', alignItems: 'center',
+                  textAlign: 'center',
+                  background: isHovered ? 'rgba(22,163,74,0.09)' : 'rgba(22,163,74,0.03)',
+                  border: `1px solid ${isHovered ? 'rgba(22,163,74,0.40)' : 'rgba(22,163,74,0.12)'}`,
+                  borderRadius: '16px',
+                  /* extra top padding since we removed the step bubble */
+                  padding: '20px 12px 16px',
+                  position: 'relative', zIndex: 1,
+                  transform: isHovered ? 'translateY(-6px)' : 'translateY(0)',
+                  boxShadow: isHovered ? '0 16px 32px rgba(22,163,74,0.15)' : 'none',
+                  transition: 'all 0.28s ease', cursor: 'default',
+                }}
+              >
+                {/* Logo */}
+                <div style={{
+                  width: '52px', height: '52px', borderRadius: '14px',
+                  background: 'var(--bg)',
+                  border: `1px solid ${isHovered ? 'rgba(22,163,74,0.45)' : 'rgba(22,163,74,0.18)'}`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  padding: '8px', marginBottom: '12px',
+                  boxShadow: isHovered ? '0 0 18px rgba(22,163,74,0.25)' : 'none',
+                  transition: 'all 0.28s ease',
+                }}>
+                  <img src={school.logo} alt={school.short} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                </div>
+
+                {/* Name */}
+                <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 700, color: 'var(--text)', marginBottom: '4px', lineHeight: 1.3 }}>
+                  {school.short}
+                </p>
+
+                {/* Detail */}
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-muted)', marginBottom: '2px', lineHeight: 1.5 }}>
+                  {school.detail}
+                </p>
+
+                {/* Sub */}
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)', marginBottom: '10px', lineHeight: 1.5, opacity: 0.75 }}>
+                  {school.sub}
+                </p>
+
+                {/* Period */}
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#16a34a', marginBottom: '8px' }}>
+                  {school.period}
+                </p>
+
+                {/* Grade + badge */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#4af2a1', background: 'rgba(74,242,161,0.10)', padding: '2px 8px', borderRadius: '4px' }}>
+                    {school.grade}
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#16a34a', background: 'rgba(22,163,74,0.12)', padding: '1px 6px', borderRadius: '3px' }}>
+                    {school.badge}
+                  </span>
+                </div>
               </div>
-
-              {/* Logo */}
-              <div style={{
-                width: '52px', height: '52px', borderRadius: '14px',
-                background: 'var(--bg)',
-                border: `1px solid ${isHovered ? 'rgba(22,163,74,0.45)' : 'rgba(22,163,74,0.18)'}`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                padding: '8px', marginBottom: '12px',
-                boxShadow: isHovered ? '0 0 18px rgba(22,163,74,0.25)' : 'none',
-                transition: 'all 0.28s ease',
-              }}>
-                <img src={school.logo} alt={school.short} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-              </div>
-
-              {/* Name */}
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 700, color: 'var(--text)', marginBottom: '4px', lineHeight: 1.3 }}>
-                {school.short}
-              </p>
-
-              {/* Level — bumped from text-subtle to text-muted, font size 11→12px */}
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--text-muted)', marginBottom: '2px', lineHeight: 1.5 }}>
-                {school.detail}
-              </p>
-              {/* Sub — same bump */}
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-muted)', marginBottom: '10px', lineHeight: 1.5, opacity: 0.75 }}>
-                {school.sub}
-              </p>
-
-              {/* Period */}
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#16a34a', marginBottom: '8px' }}>
-                {school.period}
-              </p>
-
-              {/* Grade + badge */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#4af2a1', background: 'rgba(74,242,161,0.10)', padding: '2px 8px', borderRadius: '4px' }}>
-                  {school.grade}
-                </span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: '#16a34a', background: 'rgba(22,163,74,0.12)', padding: '1px 6px', borderRadius: '3px' }}>
-                  {school.badge}
-                </span>
-              </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
 
-      {/* Footer quote — bumped from text-subtle to text-muted, font size 12→13px */}
+      {/* Footer quote */}
       <div style={{ marginTop: '24px', paddingTop: '16px', borderTop: '1px solid rgba(22,163,74,0.12)', display: 'flex', alignItems: 'center', gap: '10px' }}>
         <div style={{ width: '3px', height: '28px', borderRadius: '2px', background: 'linear-gradient(180deg, #16a34a, #4af2a1)', flexShrink: 0 }} />
         <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.6, fontStyle: 'italic', opacity: 0.85 }}>
@@ -669,7 +677,7 @@ export default function About() {
 
         </div>
 
-        {/* ── Full-width Lasallian section below both columns ── */}
+        {/* Lasallian section */}
         <div ref={lasalRef} className="section-animate">
           <LasallianSection />
         </div>
