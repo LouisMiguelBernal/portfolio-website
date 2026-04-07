@@ -1,4 +1,4 @@
-# Louis Miguel Bernal Chen — Portfolio
+# Louis Miguel Bernal — Portfolio
 
 A sleek, dark-themed personal portfolio built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**.
 
