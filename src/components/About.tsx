@@ -7,7 +7,7 @@ const experience = [
     role: 'Quantitative Data & Systems Engineer',
     company: 'FloatInfinity · Sydney, Australia',
     period: 'March 2026 — Present',
-    desc: '• Developed an end-to-end NLP/ML quantitative trading algorithm across 15+ instruments, training sentiment and macro regime classification models on real-time market sentiment signals, macroeconomic indicators, institutional positioning flows, and options market data extracting 50+ engineered features across technical momentum, sentiment, and macroeconomic signal layers, achieving 72% directional accuracy and a backtested Sharpe Ratio of 1.8.<br /><br />• Built an Automated Reporting Dashboard consolidating real-time telemetry from Azure Resources, Azure Policy, Azure Patching, and Azure Backup into a unified operational intelligence layer, engineering REST API ingestion pipelines and SQL-optimized data models with incremental deduplication, cutting incident detection time by 50%, reducing manual reporting overhead by 70–80%, and achieving 99.9% system availability.<br /><br />• Engineered end-to-end ETL pipelines and SQL-optimized data models (SQLAlchemy) with intelligent deduplication and incremental updates across 4+ enterprise platforms, reducing data redundancy by 65%, improving query performance by 3x, and enabling real-time Azure resource monitoring that increased cloud governance visibility by 80%+.',
+    desc: 'Built institutional-grade data and trading systems spanning quantitative research and cloud analytics, developing NLP-based multi-factor trading models (72% accuracy, Sharpe 1.8) and engineering scalable ETL pipelines on Microsoft Azure with real-time API ingestion, reducing data redundancy by 65%, improving query performance 3×, and cutting operational reporting and incident detection latency by up to 80%.',
     tags: ['Azure', 'NLP', 'XGBoost', 'Scikit-learn', 'Python', 'SQL', 'REST APIs', 'Git'],
     type: 'work',
   },
@@ -321,7 +321,7 @@ function Timeline() {
                 <span style={{ opacity: 0.7 }}>{TYPE_ICON[exp.type]}</span>
                 {exp.company}
               </div>
-              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.65, marginBottom: '12px' }} dangerouslySetInnerHTML={{ __html: exp.desc }} />
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.65, marginBottom: '12px' }}>{exp.desc}</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                 {exp.tags.map(tag => (
                   <span key={tag} style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--text-subtle)', background: 'var(--bg-3)', padding: '2px 8px', borderRadius: '3px' }}>{tag}</span>
